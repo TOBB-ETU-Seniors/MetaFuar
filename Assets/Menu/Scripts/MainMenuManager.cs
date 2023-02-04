@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -9,8 +10,10 @@ public class MainMenuManager : MonoBehaviour
 {
 
     [Header("Simple Panels")]
-    [Tooltip("The UI Panel holding the Main Menu Screen elements")]
-    public GameObject mainMenuScreen;
+    [Tooltip("The UI Panel holding the Main Menu Panel elements")]
+    public GameObject mainMenuPanel;
+    [Tooltip("The UI Panel holding the Exit Panel elements")]
+    public GameObject exitPanel;
     [Tooltip("The Loading Screen holding loading bar")]
     public GameObject loadingScreen;
 
@@ -42,8 +45,10 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        // By default, starts on the home screen, disables others
-        mainMenuScreen.SetActive(true);
+        // By default, starts on the main menu panel, disables others
+        mainMenuPanel.SetActive(true);
+        if (exitPanel != null)
+            exitPanel.SetActive(false);
         if (loadingScreen != null)
             loadingScreen.SetActive(false);
 
@@ -80,6 +85,15 @@ public class MainMenuManager : MonoBehaviour
         DateTime time = DateTime.Now;
         if (showTime) { timeDisplay.text = time.ToString("HH:mm:ss"); } else if (!showTime) { timeDisplay.text = ""; }
         if (showDate) { dateDisplay.text = time.ToString("yyyy/MM/dd"); } else if (!showDate) { dateDisplay.text = ""; }
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     // Called when loading new scene
