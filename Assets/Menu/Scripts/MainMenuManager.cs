@@ -12,6 +12,8 @@ public class MainMenuManager : MonoBehaviour
     [Header("Simple Panels")]
     [Tooltip("The UI Panel holding the Main Menu Panel elements")]
     public GameObject mainMenuPanel;
+    [Tooltip("The UI Panel holding the about")]
+    public GameObject aboutPanel;
     [Tooltip("The UI Panel holding the Exit Panel elements")]
     public GameObject exitPanel;
     [Tooltip("The Loading Screen holding loading bar")]
@@ -47,6 +49,8 @@ public class MainMenuManager : MonoBehaviour
     {
         // By default, starts on the main menu panel, disables others
         mainMenuPanel.SetActive(true);
+        if (aboutPanel != null)
+            aboutPanel.SetActive(false);
         if (exitPanel != null)
             exitPanel.SetActive(false);
         if (loadingScreen != null)
