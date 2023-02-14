@@ -32,8 +32,6 @@ public class MainMenuManager : MonoBehaviour
 
     [Tooltip("The name of the scene loaded when a 'NEW GAME' is started")]
     public string newSceneName;
-    [Tooltip("The loading bar Slider UI element in the Loading Screen")]
-    public Slider loadingBar;
 
     [Header("Debug")]
     Transform tempParent;
@@ -110,6 +108,8 @@ public class MainMenuManager : MonoBehaviour
     IEnumerator LoadAsynchronously(string sceneName)
     { // scene name is just the name of the current scene being loaded
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        Slider loadingBar = loadingScreen.GetComponentInChildren<Slider>();
 
         while (!operation.isDone)
         {
