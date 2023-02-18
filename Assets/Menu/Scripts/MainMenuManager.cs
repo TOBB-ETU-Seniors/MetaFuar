@@ -101,7 +101,7 @@ public class MainMenuManager : MonoBehaviour
     // Called when loading new scene
     public void LoadNewScene()
     {
-        StartCoroutine(LoadAsynchronously(newSceneName));
+        //StartCoroutine(LoadAsynchronously(newSceneName));
     }
 
     // Load Bar synching animation

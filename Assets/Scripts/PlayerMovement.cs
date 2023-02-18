@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,11 +17,34 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
 
+    [SerializeField]
+    private GameObject m_camera;
+
+    private PhotonView view;
+
+    private void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (view.IsMine)
+        {
+            MoveCharacter();
+        }
+        else
+        {
+            m_camera.SetActive(false);
+        }
+
+    }
+
+    private void MoveCharacter()
+    {
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -0.2f;
         }
