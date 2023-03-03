@@ -9,9 +9,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
 
+    #region VARIABLES
+
     [Header("Simple Panels")]
     [Tooltip("The UI Panel holding the Main Menu Panel elements")]
     public GameObject mainMenuPanel;
+    [Tooltip("The UI Panel holding the Explore Panel elements")]
+    public GameObject explorePanel;
     [Tooltip("The UI Panel holding the about")]
     public GameObject aboutPanel;
     [Tooltip("The UI Panel holding the Exit Panel elements")]
@@ -31,12 +35,12 @@ public class MainMenuManager : MonoBehaviour
     public bool showTime = true;
 
     [Tooltip("The name of the scene loaded when a 'NEW GAME' is started")]
-    public string newSceneName;
-    [Tooltip("The loading bar Slider UI element in the Loading Screen")]
-    public Slider loadingBar;
+    public string NewSceneName { get; set; }
 
     [Header("Debug")]
     Transform tempParent;
+
+    #endregion
 
     public void MoveToFront(GameObject currentObj)
     {
@@ -49,6 +53,8 @@ public class MainMenuManager : MonoBehaviour
     {
         // By default, starts on the main menu panel, disables others
         mainMenuPanel.SetActive(true);
+        if (explorePanel != null)
+            explorePanel.SetActive(false);
         if (aboutPanel != null)
             aboutPanel.SetActive(false);
         if (exitPanel != null)
@@ -103,13 +109,15 @@ public class MainMenuManager : MonoBehaviour
     // Called when loading new scene
     public void LoadNewScene()
     {
-        StartCoroutine(LoadAsynchronously(newSceneName));
+        StartCoroutine(LoadAsynchronously(NewSceneName));
     }
 
     // Load Bar synching animation
     IEnumerator LoadAsynchronously(string sceneName)
     { // scene name is just the name of the current scene being loaded
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        Slider loadingBar = loadingScreen.GetComponentInChildren<Slider>();
 
         while (!operation.isDone)
         {
