@@ -499,7 +499,7 @@ public partial class AudioManager : MonoBehaviour {
 		audioSource.mute = false;
 		audioSource.minDistance = soundFX.falloffDistance.x;
 		audioSource.maxDistance = soundFX.falloffDistance.y;
-		audioSource.outputAudioMixerGroup = soundFX.GetMixerGroup( AudioManager.MasterMixerGroup );
+		audioSource.outputAudioMixerGroup = soundFX.GetMixerGroup( AudioManager.EmitterGroup );
 		// set the play time so we can check when sounds are done
 		emitter.endPlayTime = Time.time + clip.length + delay;
 		// cache the default volume for fading
@@ -608,7 +608,7 @@ public partial class AudioManager : MonoBehaviour {
 		audioSource.mute = false;
 		audioSource.minDistance = theAudioManager.audioMinFallOffDistance;
 		audioSource.maxDistance = theAudioManager.audioMaxFallOffDistance;
-		audioSource.outputAudioMixerGroup = AudioManager.MasterMixerGroup;
+		audioSource.outputAudioMixerGroup = AudioManager.EmitterGroup;
 		// set the play time so we can check when sounds are done
 		emitter.endPlayTime = Time.time + clip.length + delay;
 		// cache the default volume for fading

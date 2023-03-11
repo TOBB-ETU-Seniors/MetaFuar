@@ -23,8 +23,6 @@ public enum SoundPriority {
 	VeryHigh = 2,
 }
 
-public enum SoundTypes { General, Music, UI, SoundEffect, Ambient, Voice }
-
 [System.Serializable]
 public class OSPProps {
 	public OSPProps() {
@@ -162,39 +160,10 @@ public class SoundFX {
 	*/
 	public AudioMixerGroup GetMixerGroup( AudioMixerGroup defaultMixerGroup ) {
 		if ( soundGroup != null ) {
-			soundGroup.mixerGroup = GetMixerGroupAccordingToType();
 			return ( soundGroup.mixerGroup != null ) ? soundGroup.mixerGroup : defaultMixerGroup;	
 		}
 		return defaultMixerGroup;
-	}
-
-	private AudioMixerGroup GetMixerGroupAccordingToType()
-	{
-		AudioMixerGroup tempAudioMixerGroup;
-		switch (soundGroup.soundType)
-		{
-			case SoundTypes.Music:
-				tempAudioMixerGroup = AudioManager.MusicMixerGroup;
-				break;
-			case SoundTypes.UI:
-				tempAudioMixerGroup = AudioManager.UIMixerGroup;
-				break;
-			case SoundTypes.SoundEffect:
-				tempAudioMixerGroup = AudioManager.SoundEffectsMixerGroup;
-				break;
-			case SoundTypes.Ambient:
-				tempAudioMixerGroup = AudioManager.AmbientMixerGroup;
-				break;
-			case SoundTypes.Voice:
-				tempAudioMixerGroup = AudioManager.VoicesMixerGroup;
-				break;
-			default:
-				tempAudioMixerGroup = null;
-				break;
-		}
-
-		return tempAudioMixerGroup;
-	}
+	} 
 
 	/*
 	-----------------------
