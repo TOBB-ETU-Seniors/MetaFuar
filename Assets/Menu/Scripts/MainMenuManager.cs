@@ -39,20 +39,15 @@ public class MainMenuManager : MonoBehaviour
 
     [Header("Debug")]
     Transform tempParent;
+    public bool SetActiveMainMenuPanelOnStart = true;
 
     #endregion
-
-    public void MoveToFront(GameObject currentObj)
-    {
-        //tempParent = currentObj.transform.parent;
-        tempParent = currentObj.transform;
-        tempParent.SetAsLastSibling();
-    }
 
     void Start()
     {
         // By default, starts on the main menu panel, disables others
-        mainMenuPanel.SetActive(true);
+        if (SetActiveMainMenuPanelOnStart)
+            mainMenuPanel.SetActive(true);
         if (explorePanel != null)
             explorePanel.SetActive(false);
         if (aboutPanel != null)
@@ -95,6 +90,13 @@ public class MainMenuManager : MonoBehaviour
         DateTime time = DateTime.Now;
         if (showTime) { timeDisplay.text = time.ToString("HH:mm:ss"); } else if (!showTime) { timeDisplay.text = ""; }
         if (showDate) { dateDisplay.text = time.ToString("yyyy/MM/dd"); } else if (!showDate) { dateDisplay.text = ""; }
+    }
+
+    public void MoveToFront(GameObject currentObj)
+    {
+        //tempParent = currentObj.transform.parent;
+        tempParent = currentObj.transform;
+        tempParent.SetAsLastSibling();
     }
 
     public void Quit()

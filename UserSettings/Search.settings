@@ -3,13 +3,22 @@ fetchPreview = true
 defaultFlags = 0
 keepOpen = false
 queryFolder = "Assets"
-onBoardingDoNotAskAgain = false
+onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
 	"last_search.DA949528" = "console"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
+	"last_search.B655092D" = "st:w6"
+	"OpenInspectorPreview.B655092D" = "0"
+	"currentGroup.B655092D" = "all"
+	"last_search.B655095F" = "at:"
+	"OpenInspectorPreview.B655095F" = "0"
+	"currentGroup.B655095F" = "all"
+	"last_search.DA94955A" = "brightness"
+	"OpenInspectorPreview.DA94955A" = "0"
+	"currentGroup.DA94955A" = "all"
 }
 providers = {
 	adb = {
@@ -52,10 +61,24 @@ providers = {
 		priority = 50
 		defaultAction = null
 	}
+	at = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	st = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
 }
 objectSelectors = {
 }
 recentSearches = [
+	"br"
+	"re"
+	"Text Encoding"
+	"st:alias{}"
 ]
 searchItemFavorites = [
 ]
