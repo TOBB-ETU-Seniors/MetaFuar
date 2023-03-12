@@ -42,6 +42,7 @@ namespace SettingsManagers
         public void OnMasterSliderValueChange(float value)
         {
             masterVolume = value;
+            masterSlider.value = value;
             masterSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateMasterMixerVolume(value);
         }
@@ -49,6 +50,7 @@ namespace SettingsManagers
         public void OnMusicSliderValueChange(float value)
         {
             musicVolume = value;
+            musicSlider.value = value;
             musicSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateMusicMixerVolume(value);
         }
@@ -56,6 +58,7 @@ namespace SettingsManagers
         public void OnUISliderValueChange(float value)
         {
             uIVolume = value;
+            uISlider.value = value;
             uISlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateUIMixerVolume(value);
         }
@@ -63,6 +66,7 @@ namespace SettingsManagers
         public void OnSoundEffectsSliderValueChange(float value)
         {
             soundEffectsVolume = value;
+            soundEffectsSlider.value = value;
             soundEffectsSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateSoundEffectsMixerVolume(value);
         }
@@ -70,6 +74,7 @@ namespace SettingsManagers
         public void OnAmbientSliderValueChange(float value)
         {
             ambientVolume = value;
+            ambientSlider.value = value;
             ambientSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateAmbientMixerVolume(value);
         }
@@ -77,6 +82,7 @@ namespace SettingsManagers
         public void OnSpeechSliderValueChange(float value)
         {
             speechVolume = value;
+            speechSlider.value = value;
             speechSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
             AudioManager.Instance.UpdateSpeechMixerVolume(value);
         }

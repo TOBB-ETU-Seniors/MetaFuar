@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: it
   m_SharedData: {fileID: 11400000, guid: b657aea122b8fd64cba15f4d6c89d426, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 6904163636196933649
   m_TableData:
   - m_Id: 22542662402048
     m_Localized: Volume Principale
@@ -63,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: Impostazioni
+    m_Localized: IMPOSTAZIONI
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -118,10 +119,6 @@ MonoBehaviour:
     m_Localized: Grande
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704934887424
-    m_Localized: "Qualit\xE0 Complessiva"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704960053248
     m_Localized: "Qualit\xE0 Delle Texture"
     m_Metadata:
@@ -138,18 +135,6 @@ MonoBehaviour:
     m_Localized: Disabilitato
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247552
-    m_Localized: 2x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247553
-    m_Localized: 4x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247554
-    m_Localized: 8x
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704964247555
     m_Localized: V-Sync
     m_Metadata:
@@ -162,38 +147,72 @@ MonoBehaviour:
     m_Localized: Brillante
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247558
-    m_Localized: Nebbia
+  - m_Id: 2433240906498048
+    m_Localized: Indietro
     m_Metadata:
       m_Items: []
-  - m_Id: 1821439634341888
-    m_Localized: "Luminosit\xE0"
+  - m_Id: 2433240940052480
+    m_Localized: "Ripristina Le \u0130mpostazioni"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190013419520
-    m_Localized: W1
+  - m_Id: 2433240940052481
+    m_Localized: "Qualit\xE0 Complessiva"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168256
-    m_Localized: W2
+  - m_Id: 2433240940052482
+    m_Localized: "Ripristina Le \u0130mpostazioni Grafiche"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168257
-    m_Localized: W3
+  - m_Id: 2433240940052483
+    m_Localized: "Ripristina Le \u0130mpostazioni Audio"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168258
-    m_Localized: W4
+  - m_Id: 2611183976873984
+    m_Localized: Reset {settings_name} Impostazioni
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933649
+  - m_Id: 2524060045180928
+    m_Localized: Render Scale
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168259
-    m_Localized: W5
+  - m_Id: 2524060057763840
+    m_Localized: Personalizzata
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168260
-    m_Localized: W6
+  - m_Id: 2527173976162304
+    m_Localized: Ombre Nascoste
     m_Metadata:
       m_Items: []
+  - m_Id: 2587023540125696
+    m_Localized: 2x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485824
+    m_Localized: 4x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485825
+    m_Localized: 8x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Localized: "S\xEC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Localized: Annulla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Localized: "Sei Sicuro Di Voler Ripristinare Le \u0130mpostazioni {settings_name}?"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933649
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6904163636196933649
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0180e27c2f3c0900008062a5db460900

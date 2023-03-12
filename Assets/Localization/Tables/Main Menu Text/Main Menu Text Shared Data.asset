@@ -35,6 +35,30 @@ MonoBehaviour:
     m_Key: settings.language
     m_Metadata:
       m_Items: []
+  - m_Id: 2433240906498048
+    m_Key: settings.back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052480
+    m_Key: settings.reset_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2611183976873984
+    m_Key: settings.reset_settings_with_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Key: settings.reset_confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Key: settings.yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Key: settings.cancel
+    m_Metadata:
+      m_Items: []
   - m_Id: 225037619724288
     m_Key: settings.on
     m_Metadata:
@@ -47,11 +71,11 @@ MonoBehaviour:
     m_Key: settings.graphics.ui_scale
     m_Metadata:
       m_Items: []
-  - m_Id: 1821439634341888
-    m_Key: settings.graphics.brightness
+  - m_Id: 2524060045180928
+    m_Key: settings.graphics.render_scale
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704934887424
+  - m_Id: 2433240940052481
     m_Key: settings.graphics.overall_quality
     m_Metadata:
       m_Items: []
@@ -91,20 +115,24 @@ MonoBehaviour:
     m_Key: settings.graphics.ultra
     m_Metadata:
       m_Items: []
+  - m_Id: 2524060057763840
+    m_Key: settings.graphics.custom
+    m_Metadata:
+      m_Items: []
   - m_Id: 1820704960053251
     m_Key: settings.graphics.disabled
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247552
-    m_Key: settings.graphics.2x
+  - m_Id: 2587023540125696
+    m_Key: settings.graphics.2x_msaa
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247553
-    m_Key: settings.graphics.4x
+  - m_Id: 2587023569485824
+    m_Key: settings.graphics.4x_msaa
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247554
-    m_Key: settings.graphics.8x
+  - m_Id: 2587023569485825
+    m_Key: settings.graphics.8x_msaa
     m_Metadata:
       m_Items: []
   - m_Id: 1820704964247555
@@ -119,8 +147,8 @@ MonoBehaviour:
     m_Key: settings.graphics.bloom
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247558
-    m_Key: settings.graphics.fog
+  - m_Id: 2527173976162304
+    m_Key: settings.graphics.cast_shadows
     m_Metadata:
       m_Items: []
   - m_Id: 1364729164492806
@@ -129,6 +157,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1364729164492807
     m_Key: settings.graphics.big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052482
+    m_Key: settings.graphics.reset_graphics_settings
     m_Metadata:
       m_Items: []
   - m_Id: 22542662402048
@@ -163,32 +195,12 @@ MonoBehaviour:
     m_Key: settings.audio.max
     m_Metadata:
       m_Items: []
+  - m_Id: 2433240940052483
+    m_Key: settings.audio.reset_audio_settings
+    m_Metadata:
+      m_Items: []
   - m_Id: 225037674250242
     m_Key: settings.language.show_subtitles
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190013419520
-    m_Key: w1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190051168256
-    m_Key: w2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190051168257
-    m_Key: w3
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190051168258
-    m_Key: w4
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190051168259
-    m_Key: w5
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1837190051168260
-    m_Key: w6
     m_Metadata:
       m_Items: []
   m_Metadata:

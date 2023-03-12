@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: es
   m_SharedData: {fileID: 11400000, guid: b657aea122b8fd64cba15f4d6c89d426, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 6904163636196933651
   m_TableData:
   - m_Id: 22542662402048
     m_Localized: Volumen Principal
@@ -63,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: Ajustes
+    m_Localized: AJUSTES
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -118,10 +119,6 @@ MonoBehaviour:
     m_Localized: Grande
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704934887424
-    m_Localized: Calidad General
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704960053248
     m_Localized: Calidad De Textura
     m_Metadata:
@@ -138,18 +135,6 @@ MonoBehaviour:
     m_Localized: Desactivado
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247552
-    m_Localized: 2x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247553
-    m_Localized: 4x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247554
-    m_Localized: 8x
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704964247555
     m_Localized: "Sincronizaci\xF3n"
     m_Metadata:
@@ -162,38 +147,73 @@ MonoBehaviour:
     m_Localized: Brillante
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247558
-    m_Localized: Niebla
+  - m_Id: 2433240906498048
+    m_Localized: "Atr\xE1s"
     m_Metadata:
       m_Items: []
-  - m_Id: 1821439634341888
-    m_Localized: Brillo
+  - m_Id: 2433240940052480
+    m_Localized: Reiniciar Ajustes
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190013419520
-    m_Localized: W1
+  - m_Id: 2433240940052481
+    m_Localized: Calidad General
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168256
-    m_Localized: W2
+  - m_Id: 2433240940052482
+    m_Localized: "Restablecer La Configuraci\xF3n De Gr\xE1ficos"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168257
-    m_Localized: W3
+  - m_Id: 2433240940052483
+    m_Localized: "Restablecer La Configuraci\xF3n De Audio"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168258
-    m_Localized: W4
+  - m_Id: 2611183976873984
+    m_Localized: "Reset {settings_name} Configuraci\xF3n"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933651
+  - m_Id: 2524060045180928
+    m_Localized: "Escala De Representaci\xF3n"
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168259
-    m_Localized: W5
+  - m_Id: 2524060057763840
+    m_Localized: Personalizada
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168260
-    m_Localized: W6
+  - m_Id: 2527173976162304
+    m_Localized: Sombras Proyectadas
     m_Metadata:
       m_Items: []
+  - m_Id: 2587023540125696
+    m_Localized: 2x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485824
+    m_Localized: 4x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485825
+    m_Localized: 8x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Localized: "S\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Localized: "\xBFEst\xE1s Seguro De Que Quieres Restablecer La Configuraci\xF3n
+      {settings_name}?"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933651
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6904163636196933651
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0180e27c2f3c0900008062a5db460900

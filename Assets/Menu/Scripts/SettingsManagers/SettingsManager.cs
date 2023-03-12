@@ -1,4 +1,5 @@
 using SettingsManagers.Abstract;
+using System.Collections;
 using UnityEngine;
 
 namespace SettingsManagers
@@ -22,10 +23,7 @@ namespace SettingsManagers
         }
 
 
-        public void GetAndSetInitialValues()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void GetAndSetInitialValues(){}
 
         public void SetPlayerPrefs()
         {
@@ -59,12 +57,13 @@ namespace SettingsManagers
                 PlayerPrefs.Save();
                 if (enableLogging)
                     Debug.Log("PlayerPrefs saved");
-                Invoke(nameof(ResetSaveLock), 1f);
+                StartCoroutine(ResetSaveLock());
             }
         }
 
-        private void ResetSaveLock()
+        IEnumerator ResetSaveLock()
         {
+            yield return new WaitForSeconds(1f);
             saveLock = false;
         }
 

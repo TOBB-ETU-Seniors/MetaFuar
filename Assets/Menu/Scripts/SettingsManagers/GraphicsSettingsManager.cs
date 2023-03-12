@@ -1,10 +1,14 @@
 using SettingsManagers.Abstract;
 using System;
-using System.Threading;
+using System.Collections;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using Bloom = UnityEngine.Rendering.PostProcessing.Bloom;
+using ShadowQuality = UnityEngine.ShadowQuality;
 
 namespace SettingsManagers
 {
@@ -17,7 +21,8 @@ namespace SettingsManagers
             Medium,
             High,
             VeryHigh,
-            Ultra
+            Ultra,
+            Custom
         }
 
         public enum TextureQuality
@@ -28,7 +33,12 @@ namespace SettingsManagers
             VeryHigh
         }
 
-        private int[] antiAliasingLevels = { 0, 2, 4, 8 };
+        private int[] antiAliasingLevels = { 1, 2, 4, 8 };
+
+        private bool canOverallQualitySetCustom = true;
+
+        private UniversalRenderPipelineAsset currentURPAsset;
+        [SerializeField] private PostProcessVolume postProcessVolume;
 
         [Header("ADVANCED - UI Elements")]
         [Tooltip("The Main Canvas Gameobject")]
@@ -36,7 +46,7 @@ namespace SettingsManagers
 
         [Header("Graphics Settings Elements")]
         [SerializeField] private Slider uIScaleSlider;
-        [SerializeField] private Slider brightnessSlider;
+        [SerializeField] private Slider renderScaleSlider;
         [SerializeField] private TMP_Dropdown overallQualityDropdown;
         [SerializeField] private TMP_Dropdown textureQualityDropdown;
         [SerializeField] private TMP_Dropdown shadowQualityDropdown;
@@ -44,11 +54,11 @@ namespace SettingsManagers
         [SerializeField] private Toggle vSyncToggle;
         [SerializeField] private Toggle hDRToggle;
         [SerializeField] private Toggle bloomToggle;
-        [SerializeField] private Toggle fogToggle;
+        [SerializeField] private Toggle castShadowsToggle;
         //public Toggle displayFPSToggle;
 
         public static float uIScale { get; private set; }
-        public static float brightness { get; private set; }
+        public static float renderScale { get; private set; }
         public static int overallQuality { get; private set; }
         public static int textureQuality { get; private set; }
         public static int shadowQuality { get; private set; }
@@ -56,15 +66,14 @@ namespace SettingsManagers
         public static bool vSync { get; private set; }
         public static bool hDR { get; private set; }
         public static bool bloom { get; private set; }
-        public static bool fog { get; private set; }
+        public static bool castShadows { get; private set; }
 
         [Header("Debug")]
         [SerializeField] private bool enableLogging;
 
         private void Awake()
         {
-            ////////////////////////// Tier
-            //uIScaleSlider.onValueChanged.AddListener(OnUIScaleSliderValueChange);
+            currentURPAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
 
             GetAndSetInitialValues();
         }
@@ -75,109 +84,262 @@ namespace SettingsManagers
         {
             if (value < 0.5f)
                 value = 0.5f;
-            uIScale = 0.002f * value;
+            uIScale = value;
             uIScaleSlider.GetComponent<TMP_Text>().text = value.ToString("F1") + "x";
-            mainCanvas.transform.localScale = new Vector3(uIScale, uIScale, 0.002f);
+            uIScaleSlider.value = value;
+
+            mainCanvas.transform.localScale = new Vector3(0.002f * uIScale, 0.002f * uIScale, 0.002f);
+
+            if (enableLogging)
+                Debug.Log("UI Scale Slider Value Changed: " + value);
         }
 
-        public void OnBrightnessSliderValueChange(float value)
+        public void OnRenderScaleSliderValueChange(float value)
         {
-            if (value < 0.0001f)
-                value = 0.0001f;
-            brightness = value;
-            brightnessSlider.GetComponent<TMP_Text>().text = ((int)(value * 100)).ToString() + "%";
-            Screen.brightness = value;
-
-            if (UnityEngine.XR.XRSettings.enabled)
+            if (value != renderScale)
             {
-                UnityEngine.XR.XRSettings.eyeTextureResolutionScale = brightness;
-                Debug.Log("XR parlaklýðý ayarlandý");
+                SetOverallQualityDropdownCustom();
+
+                if (value < 0.5f)
+                    value = 0.5f;
+                renderScale = value;
+                renderScaleSlider.value = value;
+                renderScaleSlider.GetComponent<TMP_Text>().text = value.ToString("F1");
+
+                currentURPAsset.renderScale = value;
+
+                if (enableLogging)
+                    Debug.Log("Render Scale Slider Value Changed: " + value);
             }
         }
 
         public void OnOverallQualityDropdownValueChange(int value)
         {
-            overallQuality = value;
-            QualitySettings.SetQualityLevel(value, true);
+            if (value != overallQuality)
+            {
+                overallQuality = value;
+                overallQualityDropdown.value = value;
+                QualitySettings.SetQualityLevel(value, true);
+
+                currentURPAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
+
+                if (value != 6)
+                {
+                    canOverallQualitySetCustom = false;
+                    RefreshSubValues();
+                    StartCoroutine(ResetCanOverallQualitySetCustom());
+                }
+                else
+                {
+                    SetOverallQualityDropdownCustom();
+                }
+
+                if (enableLogging)
+                    Debug.Log("Overall Quality Value Changed: " + (OverallQuality)value);
+            }
         }
 
         public void OnTextureQualityDropdownValueChange(int value)
         {
-            textureQuality = value;
-            QualitySettings.masterTextureLimit = value;
+            if (value != textureQuality)
+            {
+                SetOverallQualityDropdownCustom();
+
+                textureQuality = value;
+                textureQualityDropdown.value = value;
+                QualitySettings.masterTextureLimit = 3 - value;
+
+                if (enableLogging)
+                    Debug.Log("Texture Quality Value Changed: " + (TextureQuality)value);
+            }
+
         }
 
         public void OnShadowQualityDropdownValueChange(int value)
         {
-            shadowQuality = value;
-            QualitySettings.shadowResolution = (ShadowResolution)value;
+            if (value != shadowQuality)
+            {
+                SetOverallQualityDropdownCustom();
+
+                shadowQuality = value;
+                shadowQualityDropdown.value = value;
+                currentURPAsset.shadowCascadeCount = value + 1;
+
+                if (enableLogging)
+                    Debug.Log("Shadow Quality Value Changed: " + (ShadowQuality)(value + 1));
+            }
         }
 
         public void OnAntiAliasingDropdownValueChange(int value)
         {
-            antiAliasing = antiAliasingLevels[value];
-            QualitySettings.antiAliasing = antiAliasingLevels[value];
+            if (value != antiAliasing)
+            {
+                SetOverallQualityDropdownCustom();
+
+                antiAliasing = value;
+                antiAliasingDropdown.value = value;
+                currentURPAsset.msaaSampleCount = antiAliasingLevels[value];
+
+                if (enableLogging)
+                    Debug.Log("Anti Aliasing Value Changed: " + antiAliasingLevels[value]);
+            }
         }
 
         public void OnVSyncToggleValueChange(bool value)
         {
-            vSync = value;
-            QualitySettings.vSyncCount = value ? 1 : 0;
+            if (value != vSync)
+            {
+                SetOverallQualityDropdownCustom();
+
+                vSync = value;
+                vSyncToggle.isOn = value;
+                QualitySettings.vSyncCount = value ? 1 : 0;
+
+                if (enableLogging)
+                    Debug.Log("VSync Value Changed: " + value);
+            }
         }
 
         public void OnHDRToggleValueChange(bool value)
         {
-            hDR = value;
-            ////////////////////////////////////////////////////////// URP
+            if (value != hDR)
+            {
+                SetOverallQualityDropdownCustom();
+
+                hDR = value;
+                hDRToggle.isOn = value;
+                currentURPAsset.supportsHDR = value;
+
+                if (enableLogging)
+                    Debug.Log("HDR Value Changed: " + value);
+            }
         }
 
         public void OnBloomToggleValueChange(bool value)
         {
-            bloom = value;
-            ////////////////////////////////////////////////////////// Post Processing
+            if (value != bloom)
+            {
+                bloom = value;
+                bloomToggle.isOn = value;
+
+                Bloom _bloom;
+                postProcessVolume.profile.TryGetSettings(out _bloom);
+                _bloom.active = value;
+
+                if (enableLogging)
+                    Debug.Log("Bloom Value Changed: " + value);
+            }
         }
 
-        public void OnFogToggleValueChange(bool value)
+        public void OnCastShadowsToggleValueChange(bool value)
         {
-            fog = value;
-            RenderSettings.fog = value;
+            if (value != castShadows)
+            {
+                SetOverallQualityDropdownCustom();
+            }
+
+            castShadows = value;
+            castShadowsToggle.isOn = value;
+            //QualitySettings.shadows = value ? ShadowQuality.All : ShadowQuality.Disable;
+            currentURPAsset.shadowDistance = value ? 50 : 0;
+
+            if (enableLogging)
+                Debug.Log("Cast Shadows Value Changed: " + QualitySettings.shadows);
         }
 
         #endregion
 
+        IEnumerator ResetCanOverallQualitySetCustom()
+        {
+            yield return new WaitForSeconds(1f);
+            canOverallQualitySetCustom = true;
+        }
+
+
+        private void SetOverallQualityDropdownCustom()
+        {
+            if (canOverallQualitySetCustom)
+            {
+                canOverallQualitySetCustom = false;
+
+                overallQuality = 6;
+                overallQualityDropdown.value = 6;
+                QualitySettings.SetQualityLevel(6, true);
+                currentURPAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
+
+                OnUIScaleSliderValueChange(uIScaleSlider.value);
+                OnRenderScaleSliderValueChange(renderScaleSlider.value);
+
+                OnTextureQualityDropdownValueChange(textureQualityDropdown.value); // very high
+                OnShadowQualityDropdownValueChange(shadowQualityDropdown.value); // very high
+                OnAntiAliasingDropdownValueChange(antiAliasingDropdown.value); // 4x MSAA
+
+                OnVSyncToggleValueChange(vSyncToggle.isOn);
+                OnHDRToggleValueChange(hDRToggle.isOn);
+                OnBloomToggleValueChange(bloomToggle.isOn);
+                OnCastShadowsToggleValueChange(castShadowsToggle.isOn);
+
+                StartCoroutine(ResetCanOverallQualitySetCustom());
+            }
+        }
+
+        private void RefreshSubValues()
+        {
+            OnRenderScaleSliderValueChange(currentURPAsset.renderScale);
+            OnTextureQualityDropdownValueChange(3 - QualitySettings.masterTextureLimit);
+            OnShadowQualityDropdownValueChange(currentURPAsset.shadowCascadeCount - 1);
+            OnAntiAliasingDropdownValueChange((int)Math.Log(currentURPAsset.msaaSampleCount, 2));
+            OnVSyncToggleValueChange(QualitySettings.vSyncCount == 1);
+            OnHDRToggleValueChange(currentURPAsset.supportsHDR);
+
+            Bloom _bloom;
+            postProcessVolume.profile.TryGetSettings(out _bloom);
+            OnBloomToggleValueChange(_bloom.active);
+
+            OnCastShadowsToggleValueChange(currentURPAsset.shadowDistance != 0);
+
+            if (enableLogging)
+                Debug.Log("Sub Values Refreshed");
+        }
+
         public void GetAndSetInitialValues()
         {
-            /*ResetSettings();
+            ResetSettings();
 
             // Load the current audio settings from PlayerPrefs or leave from the default audio settings
             if (PlayerPrefs.HasKey("uIScale"))
-                OnUIScaleSliderValueChange(PlayerPrefs.GetFloat("uIScale") / 0.002f);
-            if (PlayerPrefs.HasKey("brightness"))
-                OnBrightnessSliderValueChange(0.8f);//PlayerPrefs.GetFloat("brightness"));
+                OnUIScaleSliderValueChange(PlayerPrefs.GetFloat("uIScale"));
+
             if (PlayerPrefs.HasKey("overallQuality"))
                 OnOverallQualityDropdownValueChange(PlayerPrefs.GetInt("overallQuality"));
-            if (PlayerPrefs.HasKey("textureQuality"))
-                OnTextureQualityDropdownValueChange(PlayerPrefs.GetInt("textureQuality"));
-            if (PlayerPrefs.HasKey("shadowQuality"))
-                OnShadowQualityDropdownValueChange(PlayerPrefs.GetInt("shadowQuality"));
-            if (PlayerPrefs.HasKey("antiAliasing"))
-                OnShadowQualityDropdownValueChange(Array.IndexOf(antiAliasingLevels, PlayerPrefs.GetInt("antiAliasing")));
-            if (PlayerPrefs.HasKey("vSync"))
-                OnVSyncToggleValueChange(PlayerPrefs.GetInt("vSync") == 1);
-            if (PlayerPrefs.HasKey("hDR"))
-                OnHDRToggleValueChange(PlayerPrefs.GetInt("hDR") == 1);
-            if (PlayerPrefs.HasKey("bloom"))
-                OnBloomToggleValueChange(PlayerPrefs.GetInt("bloom") == 1);
-            if (PlayerPrefs.HasKey("fog"))
-                OnFogToggleValueChange(PlayerPrefs.GetInt("fog") == 1);
 
-            SetPlayerPrefs();*/
+            if (QualitySettings.GetQualityLevel() == 6) // Custom settings
+            {
+                if (PlayerPrefs.HasKey("renderScale"))
+                    OnRenderScaleSliderValueChange(PlayerPrefs.GetFloat("renderScale"));
+                if (PlayerPrefs.HasKey("textureQuality"))
+                    OnTextureQualityDropdownValueChange(PlayerPrefs.GetInt("textureQuality"));
+                if (PlayerPrefs.HasKey("shadowQuality"))
+                    OnShadowQualityDropdownValueChange(PlayerPrefs.GetInt("shadowQuality"));
+                if (PlayerPrefs.HasKey("antiAliasing"))
+                    OnShadowQualityDropdownValueChange(PlayerPrefs.GetInt("antiAliasing"));
+                if (PlayerPrefs.HasKey("vSync"))
+                    OnVSyncToggleValueChange(PlayerPrefs.GetInt("vSync") == 1);
+                if (PlayerPrefs.HasKey("hDR"))
+                    OnHDRToggleValueChange(PlayerPrefs.GetInt("hDR") == 1);
+                if (PlayerPrefs.HasKey("bloom"))
+                    OnBloomToggleValueChange(PlayerPrefs.GetInt("bloom") == 1);
+                if (PlayerPrefs.HasKey("castShadows"))
+                    OnCastShadowsToggleValueChange(PlayerPrefs.GetInt("castShadows") != 0);
+            }
+
+            SetPlayerPrefs();
         }
 
         public void SetPlayerPrefs()
         {
             PlayerPrefs.SetFloat("uIScale", uIScale);
-            PlayerPrefs.SetFloat("brightness", brightness);
+            PlayerPrefs.SetFloat("renderScale", renderScale);
             PlayerPrefs.SetInt("overallQuality", overallQuality);
             PlayerPrefs.SetInt("textureQuality", textureQuality);
             PlayerPrefs.SetInt("shadowQuality", shadowQuality);
@@ -186,22 +348,30 @@ namespace SettingsManagers
             PlayerPrefs.SetInt("vSync", Convert.ToInt32(vSync));
             PlayerPrefs.SetInt("hDR", Convert.ToInt32(hDR));
             PlayerPrefs.SetInt("bloom", Convert.ToInt32(bloom));
-            PlayerPrefs.SetInt("fog", Convert.ToInt32(fog));
+            PlayerPrefs.SetInt("castShadows", Convert.ToInt32(castShadows));
+
+            if (enableLogging)
+                Debug.Log("Graphics Settings Player Prefs Set");
         }
 
         public void ResetSettings()
         {
             OnUIScaleSliderValueChange(1f);
-            OnBrightnessSliderValueChange(0.8f);
-            OnOverallQualityDropdownValueChange((int)OverallQuality.Ultra);
-            OnTextureQualityDropdownValueChange((int)TextureQuality.VeryHigh);
-            OnShadowQualityDropdownValueChange((int)ShadowResolution.High);
-            OnAntiAliasingDropdownValueChange(2);
+            OnRenderScaleSliderValueChange(1f);
+
+            OnTextureQualityDropdownValueChange((int)TextureQuality.VeryHigh); // very high
+            OnShadowQualityDropdownValueChange(3); // very high
+            OnAntiAliasingDropdownValueChange(2); // 4x MSAA
 
             OnVSyncToggleValueChange(true);
             OnHDRToggleValueChange(true);
             OnBloomToggleValueChange(true);
-            OnFogToggleValueChange(true);
+            OnCastShadowsToggleValueChange(true);
+
+            OnOverallQualityDropdownValueChange((int)OverallQuality.Ultra); // ultra
+
+            if (enableLogging)
+                Debug.Log("Graphics Settings Has Been Reset");
         }
     }
 }

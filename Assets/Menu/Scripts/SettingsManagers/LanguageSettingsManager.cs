@@ -37,10 +37,21 @@ namespace SettingsManagers
             GetAndSetInitialValues();
         }
 
+        private void OnEnable() => LocalizationSettings.SelectedLocaleChanged += LocalizationSettings_SelectedLocaleChanged;
+        private void OnDisable() => LocalizationSettings.SelectedLocaleChanged -= LocalizationSettings_SelectedLocaleChanged;
+        private void OnDestroy() => LocalizationSettings.SelectedLocaleChanged -= LocalizationSettings_SelectedLocaleChanged;
+
+        private void LocalizationSettings_SelectedLocaleChanged(UnityEngine.Localization.Locale obj)
+        {
+            OnLanguageDropdownValueChange(LocalizationSettings.AvailableLocales.Locales.IndexOf(obj));
+        }
+
+        
         #region OnSettingsValueChange
 
         public void OnLanguageDropdownValueChange(int value)
         {
+            languageDropdown.value = value;
             StartCoroutine(SetLocale(value));
             currentLanguage = (Language)value;
         }

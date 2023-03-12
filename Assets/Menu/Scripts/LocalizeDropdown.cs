@@ -1,16 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
-[RequireComponent(typeof(TMP_Dropdown))]
 [AddComponentMenu("Localization/Localize Dropdown")]
 public class LocalizeDropdown : MonoBehaviour
 {
-
     [Serializable]
     public class LocalizedDropdownOption
     {
@@ -19,48 +16,63 @@ public class LocalizeDropdown : MonoBehaviour
 
     public List<LocalizedDropdownOption> options;
     public int selectedOptionIndex = 0;
-    private Locale currentLocale = null;
-    private TMP_Dropdown Dropdown;
 
+    private static List<TMP_Dropdown> allDropdowns = new List<TMP_Dropdown>();
+    private static Locale currentLocale = null;
+
+    private TMP_Dropdown dropdown;
+
+    private void OnEnable()
+    {
+        dropdown = GetComponent<TMP_Dropdown>();
+        allDropdowns.Add(dropdown);
+        LocalizationSettings.SelectedLocaleChanged += UpdateAllDropdowns;
+        UpdateDropdown();
+    }
+
+    private void OnDisable()
+    {
+        allDropdowns.Remove(dropdown);
+        LocalizationSettings.SelectedLocaleChanged -= UpdateAllDropdowns;
+    }
+
+    private void OnDestroy()
+    {
+        allDropdowns.Remove(dropdown);
+        LocalizationSettings.SelectedLocaleChanged -= UpdateAllDropdowns;
+    }
 
     private void Start()
     {
-        Dropdown = this.gameObject.GetComponent<TMP_Dropdown>();
-        getLocale();
-        UpdateDropdown(currentLocale);
-        LocalizationSettings.SelectedLocaleChanged += UpdateDropdown;
-    }
-
-
-    //private void OnEnable() => LocalizationSettings.SelectedLocaleChanged += UpdateDropdown;
-    private void OnDisable() => LocalizationSettings.SelectedLocaleChanged -= UpdateDropdown;
-    void OnDestroy() => LocalizationSettings.SelectedLocaleChanged -= UpdateDropdown;
-
-
-
-    private void getLocale()
-    {
-        var locale = LocalizationSettings.SelectedLocale;
-        if (currentLocale != null && locale != currentLocale)
+        if (currentLocale == null)
         {
-            currentLocale = locale;
+            currentLocale = LocalizationSettings.SelectedLocale;
         }
+        UpdateDropdown();
     }
 
-
-    private void UpdateDropdown(Locale locale)
+    private void UpdateDropdown()
     {
-        selectedOptionIndex = Dropdown.value;
-        Dropdown.ClearOptions();
+        selectedOptionIndex = dropdown.value;
+        dropdown.ClearOptions();
 
         for (int i = 0; i < options.Count; i++)
         {
-            String localizedText = options[i].text.GetLocalizedString();
-            Dropdown.options.Add(new TMP_Dropdown.OptionData(localizedText));
+            string localizedText = options[i].text.GetLocalizedString();
+            dropdown.options.Add(new TMP_Dropdown.OptionData(localizedText));
         }
 
-        Dropdown.value = selectedOptionIndex;
-        Dropdown.RefreshShownValue();
+        dropdown.value = selectedOptionIndex;
+        dropdown.RefreshShownValue();
     }
 
+    private static void UpdateAllDropdowns(Locale locale)
+    {
+        currentLocale = locale;
+        foreach (TMP_Dropdown dropdown in allDropdowns)
+        {
+            LocalizeDropdown localizeDropdown = dropdown.GetComponent<LocalizeDropdown>();
+            localizeDropdown.UpdateDropdown();
+        }
+    }
 }

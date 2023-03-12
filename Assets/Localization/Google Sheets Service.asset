@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ApiKey: 
   m_ClientId: 720315392289-4frb7vserui1v7irsm3e7suda6g1kuao.apps.googleusercontent.com
-  m_ClientSecret: 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
+  m_ClientSecret: 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
   m_AuthenticationType: 1
   m_ApplicationName: MetaFuar
   m_NewSheetProperties:

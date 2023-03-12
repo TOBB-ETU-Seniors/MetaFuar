@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: b657aea122b8fd64cba15f4d6c89d426, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 6904163636196933654
   m_TableData:
   - m_Id: 22542662402048
     m_Localized: Master Volume
@@ -63,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: Settings
+    m_Localized: SETTINGS
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -118,10 +119,6 @@ MonoBehaviour:
     m_Localized: Big
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704934887424
-    m_Localized: Overall Quality
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704960053248
     m_Localized: Texture Quality
     m_Metadata:
@@ -138,18 +135,6 @@ MonoBehaviour:
     m_Localized: Disabled
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247552
-    m_Localized: 2x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247553
-    m_Localized: 4x
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820704964247554
-    m_Localized: 8x
-    m_Metadata:
-      m_Items: []
   - m_Id: 1820704964247555
     m_Localized: V-Sync
     m_Metadata:
@@ -162,38 +147,72 @@ MonoBehaviour:
     m_Localized: Bloom
     m_Metadata:
       m_Items: []
-  - m_Id: 1820704964247558
-    m_Localized: Fog
+  - m_Id: 2433240906498048
+    m_Localized: Back
     m_Metadata:
       m_Items: []
-  - m_Id: 1821439634341888
-    m_Localized: Brightness
+  - m_Id: 2433240940052480
+    m_Localized: Reset Settings
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190013419520
-    m_Localized: w1
+  - m_Id: 2433240940052481
+    m_Localized: Overall Quality
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168256
-    m_Localized: w2
+  - m_Id: 2433240940052482
+    m_Localized: Reset Graphics Settings
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168257
-    m_Localized: w3
+  - m_Id: 2433240940052483
+    m_Localized: Reset Audio Settings
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168258
-    m_Localized: w4
+  - m_Id: 2611183976873984
+    m_Localized: Reset {settings_name} Settings
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933654
+  - m_Id: 2524060045180928
+    m_Localized: Render Scale
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168259
-    m_Localized: w5
+  - m_Id: 2524060057763840
+    m_Localized: Custom
     m_Metadata:
       m_Items: []
-  - m_Id: 1837190051168260
-    m_Localized: w6
+  - m_Id: 2527173976162304
+    m_Localized: Cast Shadows
     m_Metadata:
       m_Items: []
+  - m_Id: 2587023540125696
+    m_Localized: 2x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485824
+    m_Localized: 4x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485825
+    m_Localized: 8x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Localized: Are You Sure You Want To Reset The {settings_name} Settings?
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933654
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6904163636196933654
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0180e27c2f3c0900008062a5db460900

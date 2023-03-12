@@ -14,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
     [Header("Simple Panels")]
     [Tooltip("The UI Panel holding the Main Menu Panel elements")]
     public GameObject mainMenuPanel;
+    [Tooltip("The UI Panel holding the Settings Panel elements")]
+    public GameObject settingsPanel;
     [Tooltip("The UI Panel holding the Explore Panel elements")]
     public GameObject explorePanel;
     [Tooltip("The UI Panel holding the about")]
@@ -48,6 +50,8 @@ public class MainMenuManager : MonoBehaviour
         // By default, starts on the main menu panel, disables others
         if (SetActiveMainMenuPanelOnStart)
             mainMenuPanel.SetActive(true);
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
         if (explorePanel != null)
             explorePanel.SetActive(false);
         if (aboutPanel != null)
