@@ -89,7 +89,7 @@ namespace OVR
         public AudioMixerGroup uIMixerGroup = null;
         public AudioMixerGroup soundEffectsMixerGroup = null;
         public AudioMixerGroup ambientMixerGroup = null;
-        public AudioMixerGroup voicesMixerGroup = null;
+        public AudioMixerGroup speechMixerGroup = null;
 
 
         [Tooltip("Log all PlaySound calls to the Unity console")]
@@ -124,7 +124,7 @@ namespace OVR
         static public AudioMixerGroup UIMixerGroup { get { return theAudioManager.uIMixerGroup; } }
         static public AudioMixerGroup SoundEffectsMixerGroup { get { return theAudioManager.soundEffectsMixerGroup; } }
         static public AudioMixerGroup AmbientMixerGroup { get { return theAudioManager.ambientMixerGroup; } }
-        static public AudioMixerGroup VoicesMixerGroup { get { return theAudioManager.voicesMixerGroup; } }
+        static public AudioMixerGroup SpeechMixerGroup { get { return theAudioManager.speechMixerGroup; } }
 
         void Awake()
         {
@@ -359,7 +359,7 @@ namespace OVR
             {
                 return;
             }
-            AudioClip clip = soundFX.GetClip();
+            /*AudioClip clip = soundFX.GetClip();
             if (clip != null)
             {
                 Assembly unityEditorAssembly = typeof(AudioImporter).Assembly;
@@ -371,7 +371,11 @@ namespace OVR
                     new System.Type[] { typeof(AudioClip) },
                     null);
                 method.Invoke(null, new object[] { clip });
-            }
+            }*/
+            if (soundFX.sourceTransform)
+                PlaySoundAt(soundFX.sourceTransform.position, soundFX);
+            else
+                PlaySound(soundFX);
         }
 
         /*
@@ -469,9 +473,9 @@ namespace OVR
         {
             ambientMixerGroup.audioMixer.SetFloat("ambientVolume", Mathf.Log10(value) * 20);
         }
-        public void UpdateVoicesMixerVolume(float value)
+        public void UpdateSpeechMixerVolume(float value)
         {
-            voicesMixerGroup.audioMixer.SetFloat("voicesVolume", Mathf.Log10(value) * 20);
+            speechMixerGroup.audioMixer.SetFloat("speechVolume", Mathf.Log10(value) * 20);
         }
 
         #endregion

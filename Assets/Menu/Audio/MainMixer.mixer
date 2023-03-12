@@ -155,7 +155,7 @@ AudioMixerController:
   - guid: 079cbd71eb355cc46bc3aa14c6245148
     name: uIVolume
   - guid: 968d702356524fb4792b166b3760f96f
-    name: voicesVolume
+    name: speechVolume
   m_AudioMixerGroupViews:
   - guids:
     - 94a55214473eb9446a1276142c9a9901
@@ -333,7 +333,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Voices
+  m_Name: Speech
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 679d2fe07198217438e99ab9bf8c5f43
   m_Children: []

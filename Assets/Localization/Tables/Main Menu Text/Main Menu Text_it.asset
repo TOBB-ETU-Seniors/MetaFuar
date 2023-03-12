@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main Menu Text_it
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: b657aea122b8fd64cba15f4d6c89d426, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6904163636196933649
+  m_TableData:
+  - m_Id: 22542662402048
+    m_Localized: Volume Principale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22542695956480
+    m_Localized: Volume Della Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037619724288
+    m_Localized: Su
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037670055936
+    m_Localized: Spento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037674250242
+    m_Localized: Mostra Sottotitoli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672320
+    m_Localized: "Volume Dell'\u0130nterfaccia Utente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672321
+    m_Localized: Volume Degli Effetti Sonori
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672322
+    m_Localized: Volume Ambientale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672323
+    m_Localized: Volume Del Discorso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432131866624
+    m_Localized: Muto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432131866625
+    m_Localized: Max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397051842560
+    m_Localized: IMPOSTAZIONI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979904
+    m_Localized: Generale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979905
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979906
+    m_Localized: Grafica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397102174208
+    m_Localized: Lingua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729135132672
+    m_Localized: "Scala Dell'\u0130nterfaccia Utente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492800
+    m_Localized: Molto Basso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492801
+    m_Localized: Basso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492802
+    m_Localized: Medio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492803
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492804
+    m_Localized: Molto Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492805
+    m_Localized: Ultra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492806
+    m_Localized: Piccolo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492807
+    m_Localized: Grande
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053248
+    m_Localized: "Qualit\xE0 Delle Texture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053249
+    m_Localized: "Qualit\xE0 Dell'Ombra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053250
+    m_Localized: Anti Aliasing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053251
+    m_Localized: Disabilitato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247555
+    m_Localized: V-Sync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247556
+    m_Localized: HDR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247557
+    m_Localized: Brillante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240906498048
+    m_Localized: Indietro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052480
+    m_Localized: "Ripristina Le \u0130mpostazioni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052481
+    m_Localized: "Qualit\xE0 Complessiva"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052482
+    m_Localized: "Ripristina Le \u0130mpostazioni Grafiche"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052483
+    m_Localized: "Ripristina Le \u0130mpostazioni Audio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2611183976873984
+    m_Localized: Reset {settings_name} Impostazioni
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933649
+  - m_Id: 2524060045180928
+    m_Localized: Render Scale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2524060057763840
+    m_Localized: Personalizzata
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527173976162304
+    m_Localized: Ombre Nascoste
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023540125696
+    m_Localized: 2x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485824
+    m_Localized: 4x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485825
+    m_Localized: 8x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Localized: "S\xEC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Localized: Annulla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Localized: "Sei Sicuro Di Voler Ripristinare Le \u0130mpostazioni {settings_name}?"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933649
+  references:
+    version: 2
+    RefIds:
+    - rid: 6904163636196933649
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0180e27c2f3c0900008062a5db460900

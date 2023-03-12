@@ -23,7 +23,7 @@ public enum SoundPriority {
 	VeryHigh = 2,
 }
 
-public enum SoundTypes { General, Music, UI, SoundEffect, Ambient, Voice }
+public enum SoundTypes { General, Music, UI, SoundEffect, Ambient, Speech }
 
 [System.Serializable]
 public class OSPProps {
@@ -74,12 +74,20 @@ public class SoundFX {
 		pctChanceToPlay = 1.0f;
 		priority = SoundPriority.Default;
 		delay = Vector2.zero;
+		playOnAwake = false;
 		looping = false;
 		ospProps = new OSPProps();
+
+		if (playOnAwake)
+			PlaySound();
 	}
 
 	[Tooltip( "Each sound FX should have a unique name")]
 	public string			name = string.Empty;
+
+	[Tooltip("The place where sound FX will play")]
+	public Transform			sourceTransform;
+
 	[Tooltip( "Sound diversity playback option when multiple audio clips are defined, default = Random")]
 	public SoundFXNext		playback = SoundFXNext.Random;
 	[Tooltip( "Default volume for this sound FX, default = 1.0")]
@@ -108,6 +116,7 @@ public class SoundFX {
 	[Tooltip( "Specifies the default delay when this sound FX is played, default = 0.0 secs")]
 	[MinMax ( 0.0f, 0.0f, 0.0f, 2.0f )]
 	public Vector2          delay = Vector2.zero;   // this overrides any delay passed into PlaySound() or PlaySoundAt()
+	public bool playOnAwake = false;
 	[Tooltip( "Set to true for the sound to loop continuously, default = false")]
 	public bool				looping = false;
 	public OSPProps			ospProps = new OSPProps();
@@ -185,8 +194,8 @@ public class SoundFX {
 			case SoundTypes.Ambient:
 				tempAudioMixerGroup = AudioManager.AmbientMixerGroup;
 				break;
-			case SoundTypes.Voice:
-				tempAudioMixerGroup = AudioManager.VoicesMixerGroup;
+			case SoundTypes.Speech:
+				tempAudioMixerGroup = AudioManager.SpeechMixerGroup;
 				break;
 			default:
 				tempAudioMixerGroup = null;

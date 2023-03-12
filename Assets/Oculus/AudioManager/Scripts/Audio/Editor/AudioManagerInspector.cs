@@ -90,7 +90,7 @@ public class AudioManagerInspector : Editor {
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "uIMixerGroup" ), new GUIContent( "UI Mixer Group" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "soundEffectsMixerGroup" ), new GUIContent( "Sound Effects Mixer Group" ));
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "ambientMixerGroup" ), new GUIContent( "Ambient Mixer Group" ));
-			EditorGUILayout.PropertyField( serializedObject.FindProperty( "voicesMixerGroup" ), new GUIContent( "Voices Mixer Group" ));
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "speechMixerGroup" ), new GUIContent( "Speech Mixer Group" ));
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "verboseLogging" ), new GUIContent( "Verbose Logging" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "maxSoundEmitters" ), new GUIContent( "Max Sound Emitters" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "volumeSoundFX" ), new GUIContent( "Default Volume" ) );
@@ -413,11 +413,12 @@ public class AudioManagerInspector : Editor {
 
 						// play button
 						if ( GUILayout.Button( "\u25BA", GUILayout.Width( 17f ), GUILayout.Height( 16f ) ) ) {
-							if ( AudioManager.IsSoundPlaying( soundFXName ) ) {
+							/*if ( AudioManager.IsSoundPlaying( soundFXName ) ) {
 								AudioManager.StopSound( soundFXName );
 							} else {
 								AudioManager.PlaySound( soundFXName );
-							}
+							}*/
+							AudioManager.PlaySound(soundFXName);
 						}
 					}
 					EditorGUILayout.EndHorizontal();
