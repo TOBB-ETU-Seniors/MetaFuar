@@ -15,8 +15,44 @@ MonoBehaviour:
   m_TableCollectionName: Main Menu Text
   m_TableCollectionNameGuidString: b657aea122b8fd64cba15f4d6c89d426
   m_Entries:
+  - m_Id: 5749667570810880
+    m_Key: social
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Key: explore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Key: enter_to_the_fair
+    m_Metadata:
+      m_Items: []
   - m_Id: 1043397051842560
     m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Key: about
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Key: explore.explore_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Key: explore.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5756064500973568
+    m_Key: exit_confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Key: settings.settings_title
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -193,10 +229,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 408432131866625
     m_Key: settings.audio.max
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2433240940052483
-    m_Key: settings.audio.reset_audio_settings
     m_Metadata:
       m_Items: []
   - m_Id: 225037674250242

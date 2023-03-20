@@ -4,16 +4,18 @@ using System.Collections;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-using Bloom = UnityEngine.Rendering.PostProcessing.Bloom;
 using ShadowQuality = UnityEngine.ShadowQuality;
 
 namespace SettingsManagers
 {
     public class GraphicsSettingsManager : MonoBehaviour, ISettingsManager
     {
+
+        #region Properties
+
         public enum OverallQuality
         {
             VeryLow,
@@ -38,7 +40,7 @@ namespace SettingsManagers
         private bool canOverallQualitySetCustom = true;
 
         private UniversalRenderPipelineAsset currentURPAsset;
-        [SerializeField] private PostProcessVolume postProcessVolume;
+        [SerializeField] private Volume globalVolume;
 
         [Header("ADVANCED - UI Elements")]
         [Tooltip("The Main Canvas Gameobject")]
@@ -70,6 +72,8 @@ namespace SettingsManagers
 
         [Header("Debug")]
         [SerializeField] private bool enableLogging;
+
+        #endregion
 
         private void Awake()
         {
@@ -223,7 +227,7 @@ namespace SettingsManagers
                 bloomToggle.isOn = value;
 
                 Bloom _bloom;
-                postProcessVolume.profile.TryGetSettings(out _bloom);
+                globalVolume.profile.TryGet(out _bloom);
                 _bloom.active = value;
 
                 if (enableLogging)
@@ -293,7 +297,7 @@ namespace SettingsManagers
             OnHDRToggleValueChange(currentURPAsset.supportsHDR);
 
             Bloom _bloom;
-            postProcessVolume.profile.TryGetSettings(out _bloom);
+            globalVolume.profile.TryGet(out _bloom);
             OnBloomToggleValueChange(_bloom.active);
 
             OnCastShadowsToggleValueChange(currentURPAsset.shadowDistance != 0);

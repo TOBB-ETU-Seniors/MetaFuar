@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: EINSTELLUNGEN
+    m_Localized: Einstellungen
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -163,8 +163,8 @@ MonoBehaviour:
     m_Localized: "Grafikeinstellungen Zur\xFCcksetzen"
     m_Metadata:
       m_Items: []
-  - m_Id: 2433240940052483
-    m_Localized: "Audioeinstellungen Zur\xFCcksetzen"
+  - m_Id: 5756064500973568
+    m_Localized: "Sind Sie Sicher, Dass Sie Metafuar Verlassen M\xF6chten?"
     m_Metadata:
       m_Items: []
   - m_Id: 2611183976873984
@@ -210,6 +210,38 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933652
+  - m_Id: 5749667570810880
+    m_Localized: Sozial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Localized: Erkunden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Localized: Geben Sie Zur Messe Ein
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Localized: Um
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Localized: Ausfahrt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Localized: ERKUNDEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Localized: Weiter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Localized: EINSTELLUNGEN
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
