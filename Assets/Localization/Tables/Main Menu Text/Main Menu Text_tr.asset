@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 408432127672321
-    m_Localized: Ses Efektleri Hacmi
+    m_Localized: Ses Efektleri Sesi
     m_Metadata:
       m_Items: []
   - m_Id: 408432127672322
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: AYARLAR
+    m_Localized: Ayarlar
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -163,8 +163,8 @@ MonoBehaviour:
     m_Localized: "Grafik Ayarlar\u0131n\u0131 S\u0131f\u0131rla"
     m_Metadata:
       m_Items: []
-  - m_Id: 2433240940052483
-    m_Localized: "Ses Ayarlar\u0131n\u0131 S\u0131f\u0131rla"
+  - m_Id: 5756064500973568
+    m_Localized: "MetaFuar'dan \xC7\u0131kmak \u0130stedi\u011Fine Emin Misin?"
     m_Metadata:
       m_Items: []
   - m_Id: 2611183976873984
@@ -210,6 +210,38 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933653
+  - m_Id: 5749667570810880
+    m_Localized: Sosyal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Localized: "Ke\u015Ffet"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Localized: "Fuar'a Giri\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Localized: "Hakk\u0131nda"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Localized: "\xC7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Localized: "KE\u015EFET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Localized: Devam Et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

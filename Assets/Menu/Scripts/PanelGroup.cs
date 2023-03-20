@@ -1,11 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelGroup : MonoBehaviour
 {
-    public GameObject[] panelGroup;
+    [SerializeField] private GameObject[] panelGroup;
+    [SerializeField] private Toggle[] toggleGroup;
 
-    void Start()
+
+    void OnEnable()
     {
+        foreach (var toggle in toggleGroup)
+        {
+            toggle.isOn = false;
+        }
+        toggleGroup[0].isOn = true;
         DisableAllPanelsExceptGivenInParameter(panelGroup[0].gameObject);
     }
 

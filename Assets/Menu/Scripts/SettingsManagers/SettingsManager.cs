@@ -22,12 +22,23 @@ namespace SettingsManagers
             settingsManagers = GetComponents<ISettingsManager>();
         }
 
+        public T GetSettingsManager<T>() where T : class, ISettingsManager
+        {
+            foreach (var settingsManager in settingsManagers)
+            {
+                if (settingsManager is T result)
+                {
+                    return result;
+                }
+            }
+            return null;
+        }
 
         public void GetAndSetInitialValues(){}
 
         public void SetPlayerPrefs()
         {
-            foreach (ISettingsManager settingsManager in settingsManagers)
+            foreach (var settingsManager in settingsManagers)
             {
                 if (!settingsManager.Equals(this))
                     settingsManager.SetPlayerPrefs();
@@ -38,7 +49,7 @@ namespace SettingsManagers
 
         public void ResetSettings()
         {
-            foreach (ISettingsManager settingsManager in settingsManagers)
+            foreach (var settingsManager in settingsManagers)
             {
                 if (!settingsManager.Equals(this))
                     settingsManager.ResetSettings();

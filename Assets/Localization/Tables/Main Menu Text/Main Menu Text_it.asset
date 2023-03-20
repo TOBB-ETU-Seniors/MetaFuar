@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: IMPOSTAZIONI
+    m_Localized: Impostazioni
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -163,8 +163,8 @@ MonoBehaviour:
     m_Localized: "Ripristina Le \u0130mpostazioni Grafiche"
     m_Metadata:
       m_Items: []
-  - m_Id: 2433240940052483
-    m_Localized: "Ripristina Le \u0130mpostazioni Audio"
+  - m_Id: 5756064500973568
+    m_Localized: Sei Sicuro Di Voler Uscire Dal Metafuar?
     m_Metadata:
       m_Items: []
   - m_Id: 2611183976873984
@@ -209,6 +209,38 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933649
+  - m_Id: 5749667570810880
+    m_Localized: Sociale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Localized: Esplorare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Localized: "Entra \u0130n Fiera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Localized: Di
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Localized: Uscita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Localized: ESPLORARE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Localized: Avanti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Localized: IMPOSTAZIONI
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

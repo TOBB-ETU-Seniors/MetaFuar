@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1043397051842560
-    m_Localized: AJUSTES
+    m_Localized: Ajustes
     m_Metadata:
       m_Items: []
   - m_Id: 1043397097979904
@@ -163,8 +163,8 @@ MonoBehaviour:
     m_Localized: "Restablecer La Configuraci\xF3n De Gr\xE1ficos"
     m_Metadata:
       m_Items: []
-  - m_Id: 2433240940052483
-    m_Localized: "Restablecer La Configuraci\xF3n De Audio"
+  - m_Id: 5756064500973568
+    m_Localized: "\xBFEst\xE1s Seguro De Que Quieres Salir De Metafuar?"
     m_Metadata:
       m_Items: []
   - m_Id: 2611183976873984
@@ -210,6 +210,38 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933651
+  - m_Id: 5749667570810880
+    m_Localized: Social
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Localized: Explorar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Localized: Entra En La Feria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Localized: Acerca De
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Localized: Salida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Localized: EXPLORAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Localized: "Contin\xFAe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Localized: AJUSTES
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
