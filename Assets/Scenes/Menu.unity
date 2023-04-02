@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sessionWarningPanel: {fileID: 8396096150313500195, guid: 99644b4e52e59024597866d9e4c04d82, type: 3}
-  warnInEveryNseconds: 3
+  warnInEveryNseconds: 1200
 --- !u!1 &539279178
 GameObject:
   m_ObjectHideFlags: 0
