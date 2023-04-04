@@ -3,11 +3,11 @@ fetchPreview = true
 defaultFlags = 0
 keepOpen = false
 queryFolder = "Assets"
-onBoardingDoNotAskAgain = true
+onBoardingDoNotAskAgain = false
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.DA949528" = ""
+	"last_search.DA949528" = "console"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
 	"last_search.DE949528" = "sketchfab"
@@ -59,7 +59,6 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
-	"S"
 ]
 searchItemFavorites = [
 ]
