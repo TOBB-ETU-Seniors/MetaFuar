@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fuar.unity
     guid: 3e47c2328b68e244798149957e6366f0
+  - enabled: 1
+    path: Assets/Scenes/Bowling.unity
+    guid: 7ceb37c8f87e1a54995c17e929d27341
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 863b982a05ee42c4d9e562e6c9bbdfaf, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 3234225f756fe6d49acd2b396e3da642, type: 2}
