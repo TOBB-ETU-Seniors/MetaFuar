@@ -36,15 +36,21 @@ namespace Oculus.Interaction.DistanceReticles
             _lineRenderer.positionCount = NumLinePoints;
         }
 
-        protected override void RenderLine(Vector3[] linePoints)
+        protected override void InteractableSet(IRelativeToRef interactable)
         {
-            _lineRenderer.SetPositions(linePoints);
+            base.InteractableSet(interactable);
             _lineRenderer.enabled = true;
         }
 
-        protected override void HideLine()
+        protected override void InteractableUnset()
         {
+            base.InteractableUnset();
             _lineRenderer.enabled = false;
+        }
+
+        protected override void RenderLine(Vector3[] linePoints)
+        {
+            _lineRenderer.SetPositions(linePoints);
         }
 
         #region Inject

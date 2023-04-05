@@ -31,11 +31,11 @@ internal abstract class OVRProjectSetupSettingItem<T>
 	public string Key { get; }
 	public abstract T Value { get; set; }
 
-	protected OVRProjectSetupSettingItem(string uid, T defaultValue, string label = null)
+	protected OVRProjectSetupSettingItem(string uid, string label, T defaultValue)
 	{
 		Default = defaultValue;
 		Uid = uid;
-		Label = label ?? uid;
+		Label = label;
 		Key = OVRProjectSetup.KeyPrefix + "." + Uid;
 	}
 
@@ -45,15 +45,12 @@ internal abstract class OVRProjectSetupSettingItem<T>
 	{
 		Value = Default;
 	}
-
-	public void OnSet()
-	{
-	}
 }
 
 internal abstract class OVRProjectSetupSettingBool : OVRProjectSetupSettingItem<bool>
 {
-	protected OVRProjectSetupSettingBool(string uid, bool defaultValue, string label = null) : base(uid, defaultValue, label) { }
+	protected OVRProjectSetupSettingBool(string uid, string label, bool defaultValue) : base(uid, label, defaultValue) { }
+	protected OVRProjectSetupSettingBool(string uid, bool defaultValue) : base(uid, uid, defaultValue) { }
 
     public override void AppendToMenu(GenericMenu menu)
     {
@@ -63,7 +60,8 @@ internal abstract class OVRProjectSetupSettingBool : OVRProjectSetupSettingItem<
 
 internal abstract class OVRProjectSetupSettingFloat : OVRProjectSetupSettingItem<float>
 {
-	protected OVRProjectSetupSettingFloat(string uid, float defaultValue, string label = null) : base(uid, defaultValue, label) { }
+	protected OVRProjectSetupSettingFloat(string uid, string label, float defaultValue) : base(uid, label, defaultValue) { }
+	protected OVRProjectSetupSettingFloat(string uid, float defaultValue) : base(uid, uid, defaultValue) { }
 
 	public override void AppendToMenu(GenericMenu menu)
 	{
@@ -75,15 +73,15 @@ internal class OVRProjectSetupOnlyOnceSettingBool : OVRProjectSetupSettingBool
 {
 	private static readonly HashSet<string> OnlyOnceSettings = new HashSet<string>();
 
-	public OVRProjectSetupOnlyOnceSettingBool(string uid) : base(uid, true)
+	public OVRProjectSetupOnlyOnceSettingBool(string uid) : base(uid, uid, true)
 	{
 		Init();
 	}
 
 	private void Init()
 	{
-		previousTimestamp = new OVRProjectSetupInternalUserSettingFloat($"{Uid}_timestamp", 0.0f);
-		previousTimeSinceStartup = new OVRProjectSetupInternalUserSettingFloat($"{Uid}_timesincestartup", 0.0f);
+		previousTimestamp = new OVRProjectSetupUserSettingFloat($"{Uid}_timestamp", 0.0f);
+		previousTimeSinceStartup = new OVRProjectSetupUserSettingFloat($"{Uid}_timesincestartup", 0.0f);
 	}
 
 	private OVRProjectSetupSettingFloat previousTimestamp;
@@ -145,9 +143,10 @@ internal class OVRProjectSetupOnlyOnceSettingBool : OVRProjectSetupSettingBool
 	}
 }
 
-internal class OVRProjectSetupInternalUserSettingFloat : OVRProjectSetupSettingFloat
+internal class OVRProjectSetupUserSettingFloat : OVRProjectSetupSettingFloat
 {
-	public OVRProjectSetupInternalUserSettingFloat(string uid, float defaultValue, string label = null) : base(uid, defaultValue, label) {}
+	public OVRProjectSetupUserSettingFloat(string uid, string label, float defaultValue) : base(uid, label, defaultValue) {}
+	public OVRProjectSetupUserSettingFloat(string uid, float defaultValue) : base(uid, uid, defaultValue) {}
 
 	public override float Value
 	{
@@ -156,55 +155,30 @@ internal class OVRProjectSetupInternalUserSettingFloat : OVRProjectSetupSettingF
 	}
 }
 
-internal class OVRProjectSetupInternalUserSettingBool : OVRProjectSetupSettingBool
+internal class OVRProjectSetupUserSettingBool : OVRProjectSetupSettingBool
 {
-	public OVRProjectSetupInternalUserSettingBool(string uid, bool defaultValue, string label = null) : base(uid, defaultValue, label) {}
-
-	public override bool Value
-	{
-		get => EditorPrefs.GetBool(Key, Default);
-		set => EditorPrefs.SetBool(Key, value);
-	}
-}
-
-internal class OVRProjectSetupUserSettingFloat : OVRProjectSetupInternalUserSettingFloat
-{
-	public OVRProjectSetupUserSettingFloat(string uid, float defaultValue, string label = null) : base(uid, defaultValue, label) {}
-
-	public override float Value
-	{
-		set
-		{
-			base.Value = value;
-			OnSet();
-		}
-	}
-}
-
-internal class OVRProjectSetupUserSettingBool : OVRProjectSetupInternalUserSettingBool
-{
-	public OVRProjectSetupUserSettingBool(string uid, bool defaultValue, string label = null) : base(uid, defaultValue, label) {}
+    public OVRProjectSetupUserSettingBool(string uid, string label, bool defaultValue) : base(uid, label, defaultValue) {}
+    public OVRProjectSetupUserSettingBool(string uid, bool defaultValue) : base(uid, uid, defaultValue) {}
 
     public override bool Value
     {
-        set
-        {
-	        base.Value = value;
-	        OnSet();
-        }
+        get => EditorPrefs.GetBool(Key, Default);
+        set => EditorPrefs.SetBool(Key, value);
     }
 }
 
 internal class OVRProjectSetupProjectSettingBool : OVRProjectSetupSettingBool
 {
-	public OVRProjectSetupProjectSettingBool(string uid, bool defaultValue, string label = null) : base(uid, defaultValue, label) {}
+    public OVRProjectSetupProjectSettingBool(string uid, string label, bool defaultValue) : base(uid, label, defaultValue) {}
+    public OVRProjectSetupProjectSettingBool(string uid, bool defaultValue) : base(uid, uid, defaultValue) {}
 
     public override bool Value
     {
         get => OVRProjectSetupSettings.GetProjectConfig(create:false)?.GetProjectSetupBool(Key, Default) ?? Default;
         set
         {
-	        if (value == Default)
+
+            if (value == Default)
             {
                 // If back to Default, we remove it from the dictionary to avoid clutter
                 OVRProjectSetupSettings.GetProjectConfig()?.RemoveProjectSetupBool(Key);
@@ -213,15 +187,14 @@ internal class OVRProjectSetupProjectSettingBool : OVRProjectSetupSettingBool
             {
 	            OVRProjectSetupSettings.GetProjectConfig()?.SetProjectSetupBool(Key, value);
             }
-
-	        OnSet();
         }
     }
 }
 
 internal class OVRProjectSetupConstSettingBool : OVRProjectSetupSettingBool
 {
-	public OVRProjectSetupConstSettingBool(string uid, bool defaultValue, string label = null) : base(uid, defaultValue, label) {}
+	public OVRProjectSetupConstSettingBool(string uid, string label, bool defaultValue) : base(uid, label, defaultValue) {}
+	public OVRProjectSetupConstSettingBool(string uid, bool defaultValue) : base(uid, uid, defaultValue) {}
 
 	public override bool Value
 	{

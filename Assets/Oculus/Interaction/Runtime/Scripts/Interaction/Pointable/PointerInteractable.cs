@@ -19,6 +19,8 @@
  */
 
 using System;
+using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Oculus.Interaction
 {
@@ -27,7 +29,10 @@ namespace Oculus.Interaction
         where TInteractor : Interactor<TInteractor, TInteractable>
         where TInteractable : PointerInteractable<TInteractor, TInteractable>
     {
-        public IPointableElement PointableElement { get; protected set; }
+        [SerializeField, Interface(typeof(IPointableElement)), Optional]
+        private MonoBehaviour _pointableElement;
+
+        public IPointableElement PointableElement { get; private set; }
 
         public event Action<PointerEvent> WhenPointerEventRaised = delegate { };
 
@@ -38,9 +43,22 @@ namespace Oculus.Interaction
             WhenPointerEventRaised(evt);
         }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            if (_pointableElement != null)
+            {
+                PointableElement = _pointableElement as IPointableElement;
+            }
+        }
+
         protected override void Start()
         {
             this.BeginStart(ref _started, () => base.Start());
+            if (_pointableElement != null)
+            {
+                this.AssertField(PointableElement, nameof(PointableElement));
+            }
             this.EndStart(ref _started);
         }
 
@@ -67,5 +85,15 @@ namespace Oculus.Interaction
             }
             base.OnDisable();
         }
+
+        #region Inject
+
+        public void InjectOptionalPointableElement(IPointableElement pointableElement)
+        {
+            PointableElement = pointableElement;
+            _pointableElement = pointableElement as MonoBehaviour;
+        }
+
+        #endregion
     }
 }

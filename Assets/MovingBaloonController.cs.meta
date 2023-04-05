@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/MovingBaloonController.cs.meta
+guid: eaad939e803aa8942acb31d4aa1237c1
+========
+guid: 87e14328c5481cd458e1749181aaa1f5
+>>>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f:Assets/Oculus/Interaction/Editor/AutoWiring/AutoWiring.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

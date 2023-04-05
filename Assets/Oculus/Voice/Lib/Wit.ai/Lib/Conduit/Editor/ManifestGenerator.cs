@@ -7,7 +7,7 @@
  */
 
 
-using Meta.WitAi;
+using System.Text;
 using Meta.WitAi.Json;
 
 namespace Meta.Conduit.Editor
@@ -56,7 +56,6 @@ namespace Meta.Conduit.Editor
         /// <returns>A JSON representation of the manifest.</returns>
         public string GenerateManifest(string domain, string id)
         {
-            VLog.D($"Generate Manifest: {domain}");
             return GenerateManifest(_assemblyWalker.GetTargetAssemblies(), domain, id);
         }
 
@@ -77,10 +76,10 @@ namespace Meta.Conduit.Editor
         /// <returns>Extracted Intents list</returns>
         public List<string> ExtractManifestData()
         {
-            VLog.D("Extracting manifest actions and entities.");
+            Debug.Log("Extracting manifest actions and entities.");
 
             var (entities, actions) = ExtractAssemblyData(_assemblyWalker.GetTargetAssemblies());
-            VLog.D($"Extracted {actions.Count} actions and {entities.Count} entities.");
+            Debug.Log($"Extracted {actions.Count} actions and {entities.Count} entities.");
 
             List<string> transformedActions = new HashSet<string>(actions.Select(v => v.Name).Where(v => !string.IsNullOrEmpty(v))).ToList();
 
@@ -98,7 +97,7 @@ namespace Meta.Conduit.Editor
         /// <returns>A JSON representation of the manifest.</returns>
         private string GenerateManifest(IEnumerable<IConduitAssembly> assemblies, string domain, string id)
         {
-            VLog.D($"Generating manifest.");
+            Debug.Log($"Generating manifest.");
 
             var (entities, actions) = ExtractAssemblyData(assemblies);
 

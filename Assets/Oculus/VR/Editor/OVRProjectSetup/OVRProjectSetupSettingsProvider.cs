@@ -19,22 +19,13 @@
  */
 
 using UnityEditor;
-using UnityEngine.UIElements;
 
 internal class OVRProjectSetupSettingsProvider : SettingsProvider
 {
-	public enum Origins
-	{
-		Settings,
-		Menu,
-		Icon,
-		Console
-	}
-
     [MenuItem("Oculus/Tools/Project Setup Tool", false, 1)]
     static void OpenProjectSetupTool()
     {
-        OpenSettingsWindow(Origins.Menu);
+        OpenSettingsWindow();
     }
 
     public const string SettingsName = "Oculus";
@@ -42,8 +33,6 @@ internal class OVRProjectSetupSettingsProvider : SettingsProvider
 
     private OVRProjectSetupDrawer _ovrProjectSetupDrawer;
     private OVRProjectSetupDrawer OvrProjectSetupDrawer => _ovrProjectSetupDrawer ??= new OVRProjectSetupDrawer();
-    private static Origins? _lastOrigin = null;
-    private static bool _activated = false;
 
     [SettingsProvider]
     public static SettingsProvider CreateProjectValidationSettingsProvider()
@@ -54,22 +43,6 @@ internal class OVRProjectSetupSettingsProvider : SettingsProvider
     private OVRProjectSetupSettingsProvider(string path,
         SettingsScope scopes)
         : base(path, scopes) {}
-
-    public override void OnActivate(string searchContext, VisualElement rootElement)
-    {
-	    if (!_activated)
-	    {
-		    _activated = true;
-		    _lastOrigin = _lastOrigin ?? Origins.Settings;
-
-	    }
-    }
-
-    public override void OnDeactivate()
-    {
-	    _lastOrigin = null;
-	    _activated = false;
-    }
 
     public override void OnTitleBarGUI()
     {
@@ -83,10 +56,9 @@ internal class OVRProjectSetupSettingsProvider : SettingsProvider
         OvrProjectSetupDrawer.OnGUI();
     }
 
-    public static void OpenSettingsWindow(Origins origin)
+    public static void OpenSettingsWindow(BuildTargetGroup? selectedTargetGroup = null)
     {
-	    _lastOrigin = origin;
-        var buildTargetGroup = BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
+        var buildTargetGroup = selectedTargetGroup ?? BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
         EditorUserBuildSettings.selectedBuildTargetGroup = buildTargetGroup;
         SettingsService.OpenProjectSettings(SettingsPath);
     }

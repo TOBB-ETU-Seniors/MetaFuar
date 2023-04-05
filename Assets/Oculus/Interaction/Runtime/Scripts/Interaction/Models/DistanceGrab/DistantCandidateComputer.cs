@@ -30,9 +30,8 @@ namespace Oculus.Interaction
     /// </summary>
     /// <typeparam name="TInteractable"></typeparam>
     [Serializable]
-    public class DistantCandidateComputer<TInteractor, TInteractable>
-        where TInteractor : Interactor<TInteractor, TInteractable>
-        where TInteractable : Interactable<TInteractor, TInteractable>, ICollidersRef
+    public class DistantCandidateComputer<TInteractable>
+        where TInteractable : class, ICollidersRef
     {
         [SerializeField]
         private DistantPointDetectorFrustums _detectionFrustums;
@@ -79,9 +78,7 @@ namespace Oculus.Interaction
         }
 
 
-        public TInteractable ComputeCandidate(
-            InteractableRegistry<TInteractor, TInteractable> registry,
-            TInteractor interactor,
+        public TInteractable ComputeCandidate(Func<IEnumerable<TInteractable>> candidates,
              out Vector3 bestHitPoint)
         {
             if (_detector == null)
@@ -102,7 +99,7 @@ namespace Oculus.Interaction
             }
 
             TInteractable candidate = ComputeBestInteractable(
-                registry.List(interactor),
+                candidates.Invoke(),
                 _stableCandidate == null,
                 out bestHitPoint);
             if (candidate != _pointedCandidate)

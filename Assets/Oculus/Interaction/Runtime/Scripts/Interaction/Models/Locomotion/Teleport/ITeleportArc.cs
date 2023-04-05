@@ -45,4 +45,11 @@ namespace Oculus.Interaction.Locomotion
         /// <returns>The position of the arc at the index-th point</returns>
         Vector3 PointAtIndex(Pose origin, int index);
     }
+
+    public struct ArcPoint
+    {
+        public Vector3 position;
+        public Vector3 direction;
+        public float relativeLength;
+    }
 }

@@ -29,11 +29,11 @@ internal static class OVRProjectSetupCompatibilityTasks
 
     static OVRProjectSetupCompatibilityTasks()
     {
-        var compatibilityTaskGroup = OVRProjectSetup.TaskGroup.Compatibility;
+        var compatibilityTaskGroup = OVRConfigurationTask.TaskGroup.Compatibility;
 
         // [Required] Platform has to be supported
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Required,
+            level: OVRConfigurationTask.TaskLevel.Required,
             group: compatibilityTaskGroup,
             isDone: OVRProjectSetup.IsPlatformSupported,
             conditionalMessage: buildTargetGroup =>
@@ -44,7 +44,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // [Required] Android minimum level API
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Required,
+            level: OVRConfigurationTask.TaskLevel.Required,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => PlayerSettings.Android.minSdkVersion >= AndroidSdkVersions.AndroidApiLevel29,
@@ -55,7 +55,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // [Required] Android target level API
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Recommended,
+            level: OVRConfigurationTask.TaskLevel.Recommended,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => PlayerSettings.Android.targetSdkVersion == AndroidSdkVersions.AndroidApiLevelAuto || PlayerSettings.Android.targetSdkVersion >= AndroidSdkVersions.AndroidApiLevel29,
@@ -66,7 +66,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // [Required] Install Location
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Recommended,
+            level: OVRConfigurationTask.TaskLevel.Recommended,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => PlayerSettings.Android.preferredInstallLocation == AndroidPreferredInstallLocation.Auto,
@@ -77,7 +77,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // [Required] Generate Android Manifest
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Optional,
+            level: OVRConfigurationTask.TaskLevel.Optional,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => OVRManifestPreprocessor.DoesAndroidManifestExist(),
@@ -89,8 +89,8 @@ internal static class OVRProjectSetupCompatibilityTasks
         // ConfigurationTask : IL2CPP when ARM64
         OVRProjectSetup.AddTask(
             conditionalLevel: buildTargetGroup => IsTargetingARM64 ?
-                OVRProjectSetup.TaskLevel.Required :
-                OVRProjectSetup.TaskLevel.Recommended,
+                OVRConfigurationTask.TaskLevel.Required :
+                OVRConfigurationTask.TaskLevel.Recommended,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => PlayerSettings.GetScriptingBackend(buildTargetGroup) == ScriptingImplementation.IL2CPP,
@@ -103,7 +103,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // ConfigurationTask : ARM64 is recommended
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Required,
+            level: OVRConfigurationTask.TaskLevel.Required,
             group: compatibilityTaskGroup,
             platform: BuildTargetGroup.Android,
             isDone: buildTargetGroup => IsTargetingARM64,
@@ -115,7 +115,7 @@ internal static class OVRProjectSetupCompatibilityTasks
         // ConfigurationTask : No Alpha or Beta for production
         // This is a task that CANNOT BE FIXED
         OVRProjectSetup.AddTask(
-	        level: OVRProjectSetup.TaskLevel.Recommended,
+	        level: OVRConfigurationTask.TaskLevel.Recommended,
 	        group: compatibilityTaskGroup,
 	        isDone: group => !OVRManager.IsUnityAlphaOrBetaVersion(),
 	        message: "We recommend using a stable version for Oculus Development"
@@ -123,7 +123,7 @@ internal static class OVRProjectSetupCompatibilityTasks
 
         // ConfigurationTask : Check that Android TV Compatibility is disabled
         OVRProjectSetup.AddTask(
-            level: OVRProjectSetup.TaskLevel.Required,
+            level: OVRConfigurationTask.TaskLevel.Required,
             platform: BuildTargetGroup.Android,
             group: compatibilityTaskGroup,
             isDone: group => !PlayerSettings.Android.androidTVCompatibility,

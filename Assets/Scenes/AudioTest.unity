@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,7 +368,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -570,7 +570,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -668,7 +668,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -782,7 +782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
   uIMixerGroup: {fileID: 3323003408228923306, guid: b67c75b16a8137f4b9f060c59e4c581c, type: 2}
   soundEffectsMixerGroup: {fileID: -492559433839233614, guid: b67c75b16a8137f4b9f060c59e4c581c, type: 2}
   ambientMixerGroup: {fileID: -7330141872903213698, guid: b67c75b16a8137f4b9f060c59e4c581c, type: 2}
-  speechMixerGroup: {fileID: 0}
+  voicesMixerGroup: {fileID: 4474326022864457524, guid: b67c75b16a8137f4b9f060c59e4c581c, type: 2}
   verboseLogging: 0
   maxSoundEmitters: 32
   volumeSoundFX: 1
@@ -957,7 +957,6 @@ MonoBehaviour:
   - name: Test Group
     soundList:
     - name: TestSound1
-      sourceTransform: {fileID: 0}
       playback: 0
       volume: 1
       pitchVariance: {x: 0.95, y: 1.05}
@@ -1033,7 +1032,6 @@ MonoBehaviour:
       pctChanceToPlay: 1
       priority: 0
       delay: {x: 0, y: 0}
-      playOnAwake: 0
       looping: 0
       ospProps:
         enableSpatialization: 1
@@ -1047,7 +1045,6 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 8198ccc08475a764daaf226b841a55f1, type: 3}
       visibilityToggle: 0
     - name: TestSound2
-      sourceTransform: {fileID: 0}
       playback: 0
       volume: 1
       pitchVariance: {x: 0.79999995, y: 1.25}
@@ -1105,7 +1102,6 @@ MonoBehaviour:
       pctChanceToPlay: 1
       priority: 0
       delay: {x: 0, y: 0}
-      playOnAwake: 0
       looping: 0
       ospProps:
         enableSpatialization: 1
@@ -1127,7 +1123,6 @@ MonoBehaviour:
   - name: Background Music Group
     soundList:
     - name: BackgroundMusic
-      sourceTransform: {fileID: 0}
       playback: 0
       volume: 1
       pitchVariance: {x: 1, y: 1}
@@ -1185,7 +1180,6 @@ MonoBehaviour:
       pctChanceToPlay: 1
       priority: 0
       delay: {x: 0, y: 0}
-      playOnAwake: 0
       looping: 1
       ospProps:
         enableSpatialization: 0

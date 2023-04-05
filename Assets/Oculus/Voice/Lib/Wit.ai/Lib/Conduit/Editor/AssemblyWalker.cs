@@ -101,9 +101,9 @@ namespace Meta.Conduit.Editor
 
         public bool GetSourceCode(Type type, out string sourceCodeFile, out bool singleUnit)
         {
-            if (type == null)
+            if (type == null || !type.IsEnum)
             {
-                throw new ArgumentException("Type cannot be null");
+                throw new ArgumentException("Type needs to be an enum");
             }
 
             foreach (var assembly in GetCompilationAssemblies(AssembliesType.Player))
@@ -157,27 +157,15 @@ namespace Meta.Conduit.Editor
                 {
                     continue;
                 }
-
-                string sourceCode = "";
-                try
-                {
-                    sourceCode = File.ReadAllText(sourceFile);
-                }
-                catch (Exception e)
-                {
-                    VLog.D($"Failed to read file {sourceFile}.\n{e}");
-                    sourceCodeFile = string.Empty;
-                    singleUnit = false;
-                    return false;
-                }
-
-
+                
+                var sourceCode = File.ReadAllText(sourceFile);
+                
                 if (!ContainsType(sourceCode, type))
                 {
                     continue;
                 }
 
-                singleUnit = IsSingleUnitSourceCode(sourceCode);
+                singleUnit = IsSingleEnumSourceCode(sourceCode);
 
                 sourceCodeFile = sourceFile;
                 return true;
@@ -189,12 +177,12 @@ namespace Meta.Conduit.Editor
         }
 
         /// <summary>
-        /// Returns true if the code contains only a single unit (enum/class/struct) defined.
+        /// Returns true if the code contains only a single enum defined.
         /// This is not 100% accurate as it relies on simple code search so may return false positives.
         /// This checks only for classes, structs, and enums.  
         /// </summary>
         /// <returns></returns>
-        private bool IsSingleUnitSourceCode(string sourceCode)
+        private bool IsSingleEnumSourceCode(string sourceCode)
         {
             // This matches enums, classes and structs including their identifiers and nested braces (for scopes)
             var codeBlockPattern = @"(enum|class|struct)\s\w+[\n\r\s]*\{(?>\{(?<c>)|[^{}]+|\}(?<-c>))*(?(c)(?!))\}";
@@ -204,7 +192,12 @@ namespace Meta.Conduit.Editor
 
         private bool ContainsType(string sourceCode, Type type)
         {
-            var pattern = $"(enum|class|struct)\\s{type.Name}";
+            if (!type.IsEnum)
+            {
+                throw new ArgumentException("Type needs to be an enum");
+            }
+
+            var pattern = $"enum\\s{type.Name}";
 
             return Regex.IsMatch(sourceCode, pattern);
         }

@@ -27,9 +27,6 @@ namespace Oculus.Interaction
 {
     public class PokeInteractable : PointerInteractable<PokeInteractor, PokeInteractable>
     {
-        [SerializeField, Interface(typeof(IPointableElement)), Optional]
-        private MonoBehaviour _pointableElement;
-
         [Tooltip("Represents the pokeable surface area of this interactable.")]
         [SerializeField, Interface(typeof(ISurfacePatch))]
         private MonoBehaviour _surfacePatch;
@@ -162,11 +159,6 @@ namespace Oculus.Interaction
             };
 
         [SerializeField, Optional]
-        [Tooltip("(Meters, World) The threshold below which distances near this surface " +
-                 "are treated as equal in depth for the purposes of ranking.")]
-        private float _closeDistanceThreshold = 0.001f;
-
-        [SerializeField, Optional]
         private int _tiebreakerScore = 0;
 
         #region Properties
@@ -249,18 +241,6 @@ namespace Oculus.Interaction
             }
         }
 
-        public float CloseDistanceThreshold
-        {
-            get
-            {
-                return _closeDistanceThreshold;
-            }
-            set
-            {
-                _closeDistanceThreshold = value;
-            }
-        }
-
         public int TiebreakerScore
         {
             get
@@ -331,7 +311,6 @@ namespace Oculus.Interaction
         {
             base.Awake();
             SurfacePatch = _surfacePatch as ISurfacePatch;
-            PointableElement = _pointableElement as IPointableElement;
         }
 
         protected override void Start()
@@ -358,10 +337,6 @@ namespace Oculus.Interaction
                 _minThresholds.MinNormal =
                     Mathf.Min(_minThresholds.MinNormal,
                     _enterHoverNormal);
-            }
-            if (_pointableElement != null)
-            {
-                this.AssertField(PointableElement, nameof(PointableElement));
             }
 
             this.EndStart(ref _started);
@@ -390,11 +365,6 @@ namespace Oculus.Interaction
             SurfacePatch = surfacePatch;
         }
 
-        public void InjectOptionalPointableElement(IPointableElement pointableElement)
-        {
-            PointableElement = pointableElement;
-            _pointableElement = pointableElement as MonoBehaviour;
-        }
         #endregion
     }
 }

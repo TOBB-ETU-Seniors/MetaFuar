@@ -17,6 +17,7 @@ using Meta.WitAi.Configuration;
 using Meta.WitAi.Data.Configuration;
 using Meta.WitAi.Utilities;
 using Meta.Conduit;
+using Meta.WitAi;
 using Meta.WitAi.Lib;
 using UnityEditor;
 using UnityEngine;
@@ -39,9 +40,9 @@ namespace Meta.WitAi.Windows
         private bool _didCheckAutoTrainAvailability = false;
         private bool _isAutoTrainAvailable = false;
 
-        internal static readonly AssemblyWalker AssemblyWalker = new AssemblyWalker();
         private static ConduitStatistics _statistics;
         private static readonly AssemblyMiner AssemblyMiner = new AssemblyMiner(new WitParameterValidator());
+        private static readonly AssemblyWalker AssemblyWalker = new AssemblyWalker();
         private static readonly ManifestGenerator ManifestGenerator = new ManifestGenerator(AssemblyWalker, AssemblyMiner);
         private static readonly ManifestLoader ManifestLoader = new ManifestLoader();
         private static readonly IWitVRequestFactory VRequestFactory = new WitVRequestFactory();
@@ -149,14 +150,14 @@ namespace Meta.WitAi.Windows
 
         private void LayoutConduitContent()
         {
-            var isServerTokenValid = WitConfigurationUtility.IsServerTokenValid(_serverToken);
-            if (!isServerTokenValid)
+            if (!WitConfigurationUtility.IsServerTokenValid(_serverToken))
             {
                 GUILayout.TextArea(WitTexts.Texts.ConfigurationConduitMissingTokenLabel, WitStyles.LabelError);
+                return;
             }
 
             // Set conduit
-            var useConduit = GUILayout.Toggle(Configuration.useConduit, "Use Conduit (Beta)");
+            var useConduit = (GUILayout.Toggle(Configuration.useConduit, "Use Conduit (Beta)"));
             if (Configuration.useConduit != useConduit)
             {
                 Configuration.useConduit = useConduit;
@@ -170,13 +171,6 @@ namespace Meta.WitAi.Windows
             GUILayout.Space(EditorGUI.indentLevel * WitStyles.ButtonMargin);
             {
                 GUI.enabled = Configuration.useConduit;
-                var useRelaxedMatching = GUILayout.Toggle(Configuration.relaxedResolution, new GUIContent("Relaxed Resolution", "Allows resolving parameters by value if an exact match was not found. Disable to improve runtime performance."));
-                if (Configuration.relaxedResolution != useRelaxedMatching)
-                {
-                    Configuration.relaxedResolution = useRelaxedMatching;
-                    EditorUtility.SetDirty(Configuration);
-                }
-
                 GUILayout.BeginHorizontal();
                 {
                     if (WitEditorUI.LayoutTextButton(_manifestAvailable ? "Update Manifest" : "Generate Manifest"))
@@ -199,13 +193,13 @@ namespace Meta.WitAi.Windows
 
                     GUILayout.FlexibleSpace();
                     GUI.enabled = Configuration.useConduit && _manifestAvailable && !_syncInProgress;
-                    if (isServerTokenValid && WitEditorUI.LayoutTextButton("Sync Entities"))
+                    if (WitEditorUI.LayoutTextButton("Sync Entities"))
                     {
                         SyncEntities();
                         GUIUtility.ExitGUI();
                     }
 
-                    if (isServerTokenValid && _isAutoTrainAvailable)
+                    if (_isAutoTrainAvailable)
                     {
                         GUI.enabled = Configuration.useConduit && _manifestAvailable && !_syncInProgress;
                         if (WitEditorUI.LayoutTextButton("Auto train") && _manifestAvailable)
@@ -396,7 +390,7 @@ namespace Meta.WitAi.Windows
         protected virtual void LayoutConfigurationRequestTabs()
         {
             // Application info
-            Data.Info.WitAppInfo appInfo = Configuration.GetApplicationInfo();
+            Meta.WitAi.Data.Info.WitAppInfo appInfo = Configuration.GetApplicationInfo();
 
             // Indent
             EditorGUI.indentLevel++;

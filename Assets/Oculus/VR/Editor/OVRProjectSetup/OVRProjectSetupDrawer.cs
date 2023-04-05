@@ -162,13 +162,13 @@ internal class OVRProjectSetupDrawer
     private static Styles styles => _styles ??= new Styles();
 
     private readonly OVRProjectSetupSettingBool _showOutstandingItems =
-        new OVRProjectSetupUserSettingBool("ShowOutstandingItems", true);
+        new OVRProjectSetupUserSettingBool("ShowOutstandingItems", "ShowOutstandingItems", true);
     private readonly OVRProjectSetupSettingBool _showRecommendedItems =
-        new OVRProjectSetupUserSettingBool("ShowRecommendedItems", true);
+        new OVRProjectSetupUserSettingBool("ShowRecommendedItems", "ShowRecommendedItems", true);
     private readonly OVRProjectSetupSettingBool _showVerifiedItems =
-        new OVRProjectSetupUserSettingBool("ShowVerifiedItems", false);
+        new OVRProjectSetupUserSettingBool("ShowVerifiedItems", "ShowVerifiedItems", false);
     private readonly OVRProjectSetupSettingBool _showIgnoredItems =
-        new OVRProjectSetupUserSettingBool("ShowIgnoredItems", false);
+        new OVRProjectSetupUserSettingBool("ShowIgnoredItems", "ShowIgnoredItems", false);
 
     private static readonly GUIContent Title = new GUIContent("Project Setup Tool");
     private static readonly GUIContent Description = new GUIContent("This tool maintains a checklist of required setup tasks as well as best practices to ensure your project is ready to go. Follow our suggestions and fixes to quickly setup your project.");
@@ -193,14 +193,14 @@ internal class OVRProjectSetupDrawer
 
 
     // Internals
-    private OVRProjectSetup.TaskGroup _selectedTaskGroup;
+    private OVRConfigurationTask.TaskGroup _selectedTaskGroup;
     private BuildTargetGroup _selectedBuildTargetGroup = BuildTargetGroup.Unknown;
     private Vector2 _scrollViewPos = Vector2.zero;
     private OVRConfigurationTaskUpdaterSummary _lastSummary;
 
     internal OVRProjectSetupDrawer()
     {
-        _selectedTaskGroup = OVRProjectSetup.TaskGroup.All;
+        _selectedTaskGroup = OVRConfigurationTask.TaskGroup.All;
     }
 
     private class BuildTargetSelectionScope : GUI.Scope
@@ -271,9 +271,9 @@ internal class OVRProjectSetupDrawer
 
         return task.Level.GetValue(buildTargetGroup) switch
         {
-            OVRProjectSetup.TaskLevel.Required => ErrorIcon,
-            OVRProjectSetup.TaskLevel.Recommended => WarningIcon,
-            OVRProjectSetup.TaskLevel.Optional => InfoIcon,
+            OVRConfigurationTask.TaskLevel.Required => ErrorIcon,
+            OVRConfigurationTask.TaskLevel.Recommended => WarningIcon,
+            OVRConfigurationTask.TaskLevel.Optional => InfoIcon,
             _ => throw new ArgumentOutOfRangeException()
         };
     }
@@ -391,7 +391,7 @@ internal class OVRProjectSetupDrawer
 			    GUILayout.FlexibleSpace();
 
 			    // Filter
-			    EnumPopup<OVRProjectSetup.TaskGroup>(Filter, _selectedTaskGroup,
+			    EnumPopup<OVRConfigurationTask.TaskGroup>(Filter, _selectedTaskGroup,
 				    group => _selectedTaskGroup = group);
 		    }
 
@@ -401,20 +401,20 @@ internal class OVRProjectSetupDrawer
 
             DrawCategory(_showOutstandingItems, tasks => tasks
                     .Where(task =>
-                        (_selectedTaskGroup == OVRProjectSetup.TaskGroup.All || task.Group == _selectedTaskGroup)
+                        (_selectedTaskGroup == OVRConfigurationTask.TaskGroup.All || task.Group == _selectedTaskGroup)
                         && !task.IsDone(buildTargetGroup)
                         && !task.IsIgnored(buildTargetGroup)
-                        && (task.Level.GetValue(buildTargetGroup) == OVRProjectSetup.TaskLevel.Required))
+                        && (task.Level.GetValue(buildTargetGroup) == OVRConfigurationTask.TaskLevel.Required))
                     .OrderByDescending(task => task.FixAction == null)
                     .ToList(),
                 buildTargetGroup, OutstandingItems, true);
 
             DrawCategory(_showRecommendedItems, tasks => tasks
                     .Where(task =>
-                        (_selectedTaskGroup == OVRProjectSetup.TaskGroup.All || task.Group == _selectedTaskGroup)
+                        (_selectedTaskGroup == OVRConfigurationTask.TaskGroup.All || task.Group == _selectedTaskGroup)
                         && !task.IsDone(buildTargetGroup)
                         && !task.IsIgnored(buildTargetGroup)
-                        && (task.Level.GetValue(buildTargetGroup) != OVRProjectSetup.TaskLevel.Required))
+                        && (task.Level.GetValue(buildTargetGroup) != OVRConfigurationTask.TaskLevel.Required))
                     .OrderByDescending(task => task.Level.GetValue(buildTargetGroup))
                     .ThenBy(task => task.FixAction == null)
                     .ToList(),
@@ -422,7 +422,7 @@ internal class OVRProjectSetupDrawer
 
             DrawCategory(_showVerifiedItems, tasks => tasks
                     .Where(task =>
-                        (_selectedTaskGroup == OVRProjectSetup.TaskGroup.All || task.Group == _selectedTaskGroup)
+                        (_selectedTaskGroup == OVRConfigurationTask.TaskGroup.All || task.Group == _selectedTaskGroup)
                         && task.IsDone(buildTargetGroup)
                         && !task.IsIgnored(buildTargetGroup))
                     .OrderByDescending(task => task.FixAction == null)
@@ -432,7 +432,7 @@ internal class OVRProjectSetupDrawer
 
             DrawCategory(_showIgnoredItems, tasks => tasks
                     .Where(task =>
-                        (_selectedTaskGroup == OVRProjectSetup.TaskGroup.All || task.Group == _selectedTaskGroup)
+                        (_selectedTaskGroup == OVRConfigurationTask.TaskGroup.All || task.Group == _selectedTaskGroup)
                         && task.IsIgnored(buildTargetGroup))
                     .OrderByDescending(task => task.Level.GetValue(buildTargetGroup))
                     .ThenBy(task => task.FixAction != null)
@@ -465,7 +465,7 @@ internal class OVRProjectSetupDrawer
                 {
 	                if (tasks.Any(task => task.FixAction != null))
 	                {
-		                var content = tasks[0].Level.GetValue(buildTargetGroup) == OVRProjectSetup.TaskLevel.Required
+		                var content = tasks[0].Level.GetValue(buildTargetGroup) == OVRConfigurationTask.TaskLevel.Required
 			                ? FixAllButtonContent
 			                : ApplyAllButtonContent;
 		                EditorGUI.BeginDisabledGroup(OVRProjectSetup.ProcessorQueue.BusyWith(OVRConfigurationTaskProcessor.ProcessorType.Fixer));
@@ -520,7 +520,7 @@ internal class OVRProjectSetupDrawer
         if (task.FixAction != null)
         {
 	        EditorGUI.BeginDisabledGroup(cannotBeFixed);
-	        var content = task.Level.GetValue(buildTargetGroup) == OVRProjectSetup.TaskLevel.Required
+	        var content = task.Level.GetValue(buildTargetGroup) == OVRConfigurationTask.TaskLevel.Required
 		        ? FixButtonContent
 		        : ApplyButtonContent;
 

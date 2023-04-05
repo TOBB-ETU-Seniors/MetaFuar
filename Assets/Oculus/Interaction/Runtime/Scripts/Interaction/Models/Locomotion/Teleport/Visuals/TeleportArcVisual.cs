@@ -19,6 +19,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Oculus.Interaction.Locomotion
 {

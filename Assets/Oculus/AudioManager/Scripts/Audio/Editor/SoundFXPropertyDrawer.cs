@@ -17,7 +17,7 @@ public class SoundFXPropertyDrawer : PropertyDrawer {
 
 	static float lineHeight = EditorGUIUtility.singleLineHeight + 2.0f;
 
-	static string[] props = new string[] { "name", "sourceTransform", "playback", "volume", "pitchVariance", "falloffDistance", "falloffCurve", "reverbZoneMix", "spread", "pctChanceToPlay", "priority", "delay", "looping", "ospProps", "soundClips" };
+	static string[] props = new string[] { "name", "playback", "volume", "pitchVariance", "falloffDistance", "falloffCurve", "reverbZoneMix", "spread", "pctChanceToPlay", "priority", "delay", "looping", "ospProps", "soundClips" };
 
 	/*
 	-----------------------
@@ -33,17 +33,17 @@ public class SoundFXPropertyDrawer : PropertyDrawer {
 			if ( props[i] == "reverbZoneMix" ) {
 				EditorGUILayout.BeginHorizontal();
 				SerializedProperty reverbCurve = prop.FindPropertyRelative( "reverbZoneMix" );
-				EditorGUILayout.PropertyField( reverbCurve, true, GUILayout.Width( Screen.width - 200.0f ) );
+				EditorGUILayout.PropertyField( reverbCurve, true, GUILayout.Width( Screen.width - 130.0f ) );
 				if ( GUILayout.Button( "Reset", GUILayout.Width( 50.0f ) ) ) {
 					reverbCurve.animationCurveValue = new AnimationCurve( new Keyframe[2] { new Keyframe( 0f, 1.0f ), new Keyframe( 1f, 1f ) } );
 				}
 				EditorGUILayout.EndHorizontal();
 			} else {
-				EditorGUILayout.PropertyField( property, true, GUILayout.Width( Screen.width - 150.0f ) );
+				EditorGUILayout.PropertyField( property, true, GUILayout.Width( Screen.width - 80.0f ) );
 				position.y += lineHeight + 4.0f;
 				if ( props[i] == "falloffCurve" ) {
 					if ( property.enumValueIndex == (int)AudioRolloffMode.Custom ) {
-						EditorGUILayout.PropertyField( prop.FindPropertyRelative( "volumeFalloffCurve" ), true, GUILayout.Width( Screen.width - 150.0f ) );
+						EditorGUILayout.PropertyField( prop.FindPropertyRelative( "volumeFalloffCurve" ), true, GUILayout.Width( Screen.width - 80.0f ) );
 						position.y += lineHeight + 4.0f;
 					}
 				}
