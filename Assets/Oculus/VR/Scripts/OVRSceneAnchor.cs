@@ -211,11 +211,6 @@ public sealed class OVRSceneAnchor : MonoBehaviour
             return;
         }
 
-        if (!Space.Valid)
-        {
-            return;
-        }
-
         if (!AnchorReferenceCountDictionary.TryGetValue(Space, out var referenceCount))
         {
             OVRSceneManager.Development.LogError(nameof(OVRSceneAnchor),

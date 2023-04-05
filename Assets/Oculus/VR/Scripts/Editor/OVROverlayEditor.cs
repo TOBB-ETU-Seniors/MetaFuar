@@ -319,16 +319,9 @@ public class OVROverlayEditor : Editor
 			EditorGUILayout.Space();
 			EditorGUILayout.LabelField("Texture Rects", EditorStyles.boldLabel);
 
-<<<<<<< HEAD
-			bool lastOverrideTextureRectMatrix = !overlay.overrideTextureRectMatrix;
-			EditorGUILayout.PropertyField(_propOverrideTextureRectMatrix, new GUIContent("Use Default Rects", overlay.textures[1] == null ? "If you need to use a single texture as a stereo image, uncheck this box" : "Uncheck this box if you need to clip you textures or layer"));
-
-			if (lastOverrideTextureRectMatrix)
-=======
 			_propOverrideTextureRectMatrix.boolValue = !EditorGUILayout.Toggle(new GUIContent("Use Default Rects", overlay.textures[1] == null ? "If you need to use a single texture as a stereo image, uncheck this box" : "Uncheck this box if you need to clip your textures or layer"), !overlay.overrideTextureRectMatrix);
 
 			if (overlay.overrideTextureRectMatrix)
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
 			{
 				sourceRectsVisible = EditorGUILayout.Foldout(sourceRectsVisible, new GUIContent("Source Rects", "What portion of the source texture will ultimately be shown in each eye."));
 

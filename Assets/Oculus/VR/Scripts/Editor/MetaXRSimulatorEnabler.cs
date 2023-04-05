@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
@@ -20,7 +18,6 @@
  * limitations under the License.
  */
 
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
 #if OVR_UNITY_ASSET_STORE
 
 #if USING_XR_MANAGEMENT && (USING_XR_SDK_OCULUS || USING_XR_SDK_OPENXR)
@@ -31,17 +28,10 @@
 #define REQUIRES_XR_SDK
 #endif
 
-<<<<<<< HEAD
-using System.IO;
-using UnityEngine;
-using UnityEditor;
-using System;
-=======
 using System;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
 
 public class MetaXRSimulatorEnabler : MonoBehaviour
 {
@@ -84,22 +74,10 @@ public class MetaXRSimulatorEnabler : MonoBehaviour
 		string simulatorJsonPath = GetSimulatorJsonPath();
 		string simulatorDllPath = GetSimulatorDllPath();
 
-<<<<<<< HEAD
-		if (!string.IsNullOrEmpty(simulatorJsonPath) &&
-			!string.IsNullOrEmpty(simulatorDllPath) &&
-			File.Exists(simulatorJsonPath) &&
-			File.Exists(simulatorDllPath))
-		{
-			return true;
-		}
-
-		return false;
-=======
         return (!string.IsNullOrEmpty(simulatorJsonPath) &&
             !string.IsNullOrEmpty(simulatorDllPath) &&
             File.Exists(simulatorJsonPath) &&
             File.Exists(simulatorDllPath));
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
 	}
 
 	private static bool IsSimulatorActivated()
