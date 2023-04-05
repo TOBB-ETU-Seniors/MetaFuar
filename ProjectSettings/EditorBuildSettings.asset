@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Movement&ControlsScene.unity
     guid: 2dd6f0e72fc54df4994eac6ca93d3c29
+<<<<<<< HEAD
+=======
+  - enabled: 1
+    path: Assets/Scenes/Fuar.unity
+    guid: 3e47c2328b68e244798149957e6366f0
+  - enabled: 1
+    path: Assets/Scenes/Bowling.unity
+    guid: 7ceb37c8f87e1a54995c17e929d27341
+>>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 863b982a05ee42c4d9e562e6c9bbdfaf, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3ec81475e05466f42b75ed00dddc4cf4, type: 2}

@@ -115,8 +115,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD:Assets/Simple Roads/Materials/Support Shade.mat
     - _BaseColor: {r: 0.7882353, g: 0.8392157, b: 0.8745098, a: 1}
     - _Color: {r: 0.23896407, g: 0.26499647, b: 0.2830189, a: 1}
+=======
+    - <noninit>: {r: 0, g: 9.508698e-35, b: 0, a: 9.508661e-35}
+    - _BaseColor: {r: 0.45882344, g: 0.517647, b: 0.07058821, a: 1}
+    - _Color: {r: 0.45882338, g: 0.517647, b: 0.07058818, a: 1}
+>>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f:Assets/Photon/PhotonVoice/Demos/DemoVoicePun/Stylized city/Materials/ground_green232.mat
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []

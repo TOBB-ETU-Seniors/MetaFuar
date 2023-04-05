@@ -206,8 +206,10 @@ public sealed class OVRSceneAnchor : MonoBehaviour
         SceneAnchors.Remove(this.Uuid);
         SceneAnchorsList.Remove(this);
 
-        // Anchor destroyed. Adding it to an ignore list.
-        DestroyedSceneAnchors.Add(this.Uuid);
+        if (!Space.Valid)
+        {
+            return;
+        }
 
         if (!Space.Valid)
         {
@@ -243,7 +245,6 @@ public sealed class OVRSceneAnchor : MonoBehaviour
 
     internal static readonly Dictionary<Guid, OVRSceneAnchor> SceneAnchors = new Dictionary<Guid, OVRSceneAnchor>();
     internal static readonly List<OVRSceneAnchor> SceneAnchorsList = new List<OVRSceneAnchor>();
-    internal static readonly HashSet<Guid> DestroyedSceneAnchors = new HashSet<Guid>();
 }
 
 internal interface IOVRSceneComponent
