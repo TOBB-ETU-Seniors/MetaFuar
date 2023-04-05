@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main Menu Text_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: b657aea122b8fd64cba15f4d6c89d426, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6904163636196933653
+  m_TableData:
+  - m_Id: 22542662402048
+    m_Localized: Ana Ses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22542695956480
+    m_Localized: "M\xFCzik Sesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037619724288
+    m_Localized: "A\xE7\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037670055936
+    m_Localized: "Kapal\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225037674250242
+    m_Localized: "Altyaz\u0131lar\u0131 G\xF6ster"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672320
+    m_Localized: "Kullan\u0131c\u0131 Aray\xFCz\xFC Sesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672321
+    m_Localized: Ses Efektleri Sesi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672322
+    m_Localized: Ortam Sesi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432127672323
+    m_Localized: "Konu\u015Fma Sesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432131866624
+    m_Localized: Sessiz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408432131866625
+    m_Localized: Maks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397051842560
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979904
+    m_Localized: Genel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979905
+    m_Localized: Ses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397097979906
+    m_Localized: Grafik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1043397102174208
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729135132672
+    m_Localized: "Kullan\u0131c\u0131 Aray\xFCz\xFC \xD6l\xE7e\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492800
+    m_Localized: "\xC7ok D\xFC\u015F\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492801
+    m_Localized: "D\xFC\u015F\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492802
+    m_Localized: Orta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492803
+    m_Localized: "Y\xFCksek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492804
+    m_Localized: "\xC7ok Y\xFCksek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492805
+    m_Localized: Ultra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492806
+    m_Localized: "K\xFC\xE7\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364729164492807
+    m_Localized: "B\xFCy\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053248
+    m_Localized: Doku Kalitesi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053249
+    m_Localized: "G\xF6lge Kalitesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053250
+    m_Localized: "Kenar Yumu\u015Fatma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704960053251
+    m_Localized: "Devre D\u0131\u015F\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247555
+    m_Localized: V-Sync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247556
+    m_Localized: HDR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820704964247557
+    m_Localized: Parlama
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240906498048
+    m_Localized: Geri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052480
+    m_Localized: "Ayarlar\u0131 S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052481
+    m_Localized: Genel Kalite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2433240940052482
+    m_Localized: "Grafik Ayarlar\u0131n\u0131 S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5756064500973568
+    m_Localized: "MetaFuar'dan \xC7\u0131kmak \u0130stedi\u011Fine Emin Misin?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2611183976873984
+    m_Localized: "{settings_name} Ayarlar\u0131n\u0131 S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933653
+  - m_Id: 2524060045180928
+    m_Localized: "Render \xD6l\xE7e\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2524060057763840
+    m_Localized: "\xD6zel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527173976162304
+    m_Localized: "G\xF6lgeler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023540125696
+    m_Localized: 2x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485824
+    m_Localized: 4x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2587023569485825
+    m_Localized: 8x MSAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449438355456
+    m_Localized: Evet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744064
+    m_Localized: "\u0130ptal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599449446744065
+    m_Localized: "{settings_name} Ayarlar\u0131n\u0131 S\u0131f\u0131rlamak \u0130stedi\u011Fine
+      Emin Misin?"
+    m_Metadata:
+      m_Items:
+      - rid: 6904163636196933653
+  - m_Id: 5749667570810880
+    m_Localized: Sosyal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753920
+    m_Localized: "Ke\u015Ffet"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667612753921
+    m_Localized: "Fuar'a Giri\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948224
+    m_Localized: "Hakk\u0131nda"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948225
+    m_Localized: "\xC7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948226
+    m_Localized: "KE\u015EFET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948227
+    m_Localized: Devam Et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5749667616948228
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6904163636196933653
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0180e27c2f3c0900008062a5db460900

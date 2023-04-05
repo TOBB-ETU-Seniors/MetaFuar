@@ -84,10 +84,13 @@ public class AudioManagerInspector : Editor {
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "makePersistent" ), new GUIContent( "Don't Destroy on Load" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "enableSpatializedAudio" ), new GUIContent( "Enable Spatialized Audio" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "enableSpatializedFastOverride" ), new GUIContent( "Force Disable Reflections" ) );
-			EditorGUILayout.PropertyField( serializedObject.FindProperty( "audioMixer" ), new GUIContent( "Master Audio Mixer" ) );
-			EditorGUILayout.PropertyField( serializedObject.FindProperty( "defaultMixerGroup" ), new GUIContent( "Pooled Emitter Mixer Group" ) );
-			EditorGUILayout.PropertyField( serializedObject.FindProperty( "reservedMixerGroup" ), new GUIContent( "Reserved Emitter Mixer Group" ) );
-			EditorGUILayout.PropertyField( serializedObject.FindProperty( "voiceChatMixerGroup" ), new GUIContent( "Voice Chat Mixer Group" ) );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "audioMixer" ), new GUIContent( "Main Audio Mixer" ) );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "masterMixerGroup" ), new GUIContent( "Master Mixer Group" ) );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "musicMixerGroup" ), new GUIContent( "Music Mixer Group" ) );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "uIMixerGroup" ), new GUIContent( "UI Mixer Group" ) );
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "soundEffectsMixerGroup" ), new GUIContent( "Sound Effects Mixer Group" ));
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "ambientMixerGroup" ), new GUIContent( "Ambient Mixer Group" ));
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "speechMixerGroup" ), new GUIContent( "Speech Mixer Group" ));
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "verboseLogging" ), new GUIContent( "Verbose Logging" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "maxSoundEmitters" ), new GUIContent( "Max Sound Emitters" ) );
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "volumeSoundFX" ), new GUIContent( "Default Volume" ) );
@@ -118,7 +121,7 @@ public class AudioManagerInspector : Editor {
 		string soundGroupName = soundGroup.FindPropertyRelative( "name" ).stringValue;
 		if ( DrawHeader( string.Format( "{0} Properties", soundGroupName ), true ) ) {
 			EditorGUILayout.BeginVertical( GUI.skin.box );
-			EditorGUILayout.PropertyField( soundGroup.FindPropertyRelative( "mixerGroup" ), new GUIContent( "Override Mixer Group", "Leave empty to use the Audio Manager's default mixer group" ) );
+			EditorGUILayout.PropertyField( soundGroup.FindPropertyRelative( "soundType" ), new GUIContent( "Sound Type", "Determines which mixer group will be used." ) );
 			if ( !Application.isPlaying ) {
 				EditorGUILayout.PropertyField( soundGroup.FindPropertyRelative( "maxPlayingSounds" ), new GUIContent( "Max Playing Sounds Limit", "Max playing sounds for this sound group, 0 = no limit" ) );
 			} else {
@@ -410,11 +413,12 @@ public class AudioManagerInspector : Editor {
 
 						// play button
 						if ( GUILayout.Button( "\u25BA", GUILayout.Width( 17f ), GUILayout.Height( 16f ) ) ) {
-							if ( AudioManager.IsSoundPlaying( soundFXName ) ) {
+							/*if ( AudioManager.IsSoundPlaying( soundFXName ) ) {
 								AudioManager.StopSound( soundFXName );
 							} else {
 								AudioManager.PlaySound( soundFXName );
-							}
+							}*/
+							AudioManager.PlaySound(soundFXName);
 						}
 					}
 					EditorGUILayout.EndHorizontal();
