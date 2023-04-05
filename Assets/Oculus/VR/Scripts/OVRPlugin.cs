@@ -55,11 +55,8 @@ public static partial class OVRPlugin
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
 	public static readonly System.Version wrapperVersion = _versionZero;
 #else
-<<<<<<< HEAD
 	public static readonly System.Version wrapperVersion = OVRP_1_81_0.version;
-=======
-	public static readonly System.Version wrapperVersion = OVRP_1_82_0.version;
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
+
 #endif
 
 #if !OVRPLUGIN_UNSUPPORTED_PLATFORM
@@ -10042,14 +10039,5 @@ public static partial class OVRPlugin
 		public static readonly System.Version version = new System.Version(1, 81, 0);
 
 	}
-<<<<<<< HEAD
-=======
 
-	private static class OVRP_1_82_0
-	{
-        public static readonly System.Version version = new System.Version(1, 82, 0);
-
-	}
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
-	/* INSERT NEW OVRP CLASS ABOVE THIS LINE */
 }

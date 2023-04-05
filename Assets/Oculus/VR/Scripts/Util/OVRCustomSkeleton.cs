@@ -21,10 +21,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4dc3f41084631025325e0768772be03c8c2ceb8f
 public class OVRCustomSkeleton : OVRSkeleton, ISerializationCallbackReceiver
 {
 	[HideInInspector] [SerializeField] private List<Transform> _customBones_V2;
