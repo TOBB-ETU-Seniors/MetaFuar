@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
   m_Name: Localization-String-Tables-Turkish (tr)_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 391859d94ea42e841ae26481799eb487, type: 2}
+  m_Group: {fileID: 11400000, guid: 909dd21c37aa6e74d914b70deb7b2e88, type: 2}
   m_StaticContent: 0

@@ -7,12 +7,12 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.DA949528" = ""
+	"last_search.DA949528" = "console"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
-	"last_search.B655092D" = "st:exit"
-	"OpenInspectorPreview.B655092D" = "0"
-	"currentGroup.B655092D" = "all"
+	"last_search.DE949528" = "sketchfab"
+	"OpenInspectorPreview.DE949528" = "0"
+	"currentGroup.DE949528" = "all"
 }
 providers = {
 	adb = {
@@ -69,7 +69,6 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
-	"S"
 ]
 searchItemFavorites = [
 ]

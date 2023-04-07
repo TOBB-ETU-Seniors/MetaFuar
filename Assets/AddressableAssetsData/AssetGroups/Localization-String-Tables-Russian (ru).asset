@@ -15,17 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Russian (ru)
   m_Data:
     m_SerializedData: []
-  m_GUID: 65c1251c3d28c5347bc13f59476ce5c3
+  m_GUID: 104eca06e6a68e54aa59d71cc82060cc
   m_SerializeEntries:
   - m_GUID: 3eb5331904678664280aec3bb4848afc
     m_Address: Main Menu Text_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
-    - Preload
   m_ReadOnly: 1
-  m_Settings: {fileID: 11400000, guid: 13f07cf0a740d5741b367d324c90c083, type: 2}
+  m_Settings: {fileID: 11400000, guid: 82a114dfcb5905641a9b9c139af8ac60, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 11e60e3adff31c94d909bcef8217dc0b, type: 2}
-    - {fileID: 11400000, guid: a985ed397b5788d488300b06f6a40801, type: 2}
+    - {fileID: 11400000, guid: 83045be25fbe4704d888151cec9ab8c3, type: 2}
+    - {fileID: 11400000, guid: ff1446b322839314fb7a198650f4cc5a, type: 2}
