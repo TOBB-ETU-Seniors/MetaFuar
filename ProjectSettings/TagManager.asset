@@ -7,6 +7,10 @@ TagManager:
   - Navmesh Target
   - Race Car
   - Balloon Locations
+  - RoomLight
+  - SamplesInfoPanel
+  - Urun
+  - Character
   layers:
   - Default
   - TransparentFX
