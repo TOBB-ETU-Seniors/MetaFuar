@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class ItemPanelController : MonoBehaviour
 {
@@ -10,7 +11,12 @@ public class ItemPanelController : MonoBehaviour
     [SerializeField] private TMP_Text bodyText;
 
     [SerializeField] private RawImage[] images;
+    [SerializeField] private int price;
 
+    public void SetPrice(int price)
+    {
+        this.price = price;
+    }
     public void SetTitle(string text)
     {
         title.text = text;
@@ -21,9 +27,23 @@ public class ItemPanelController : MonoBehaviour
         bodyText.text = text;
     }
 
-    public void SetImages(Image[] images)
+    public IEnumerator SetImages(string[] image_links)
     {
-        throw new System.NotImplementedException();
+
+        Debug.Log("I have recieved following image links: ");
+        Debug.Log(image_links);
+        for(int i = 0; i< image_links.Length; i++) 
+        {
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(image_links[i]);
+            yield return www.SendWebRequest();
+            if (www.isNetworkError || www.isHttpError)
+                Debug.Log(www.error);
+            else {  
+                Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+                images[i].GetComponent<RawImage>().texture = myTexture;
+                Debug.Log("I updated image textures");
+            }
+        }
     }
 
     public void PurchaseItem(int itemCode)
