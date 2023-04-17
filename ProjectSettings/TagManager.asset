@@ -11,6 +11,7 @@ TagManager:
   - SamplesInfoPanel
   - Urun
   - Character
+  - Stand
   layers:
   - Default
   - TransparentFX
