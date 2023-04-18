@@ -11,6 +11,7 @@ TagManager:
   - SamplesInfoPanel
   - Urun
   - Character
+  - Stand
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - Water
   - UI
   - Car
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Top
+  - capsule
+  - wall
   - 
   - 
   - 
