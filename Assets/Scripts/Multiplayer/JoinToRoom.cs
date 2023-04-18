@@ -8,7 +8,7 @@ public class JoinToRoom : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         Debug.Log("Joining the room");
-        PhotonNetwork.JoinRoom("Room1");        
+        PhotonNetwork.JoinRandomOrCreateRoom();        
     }
 
     public override void OnConnectedToMaster()
