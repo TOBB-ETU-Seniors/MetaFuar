@@ -26,7 +26,7 @@ public class RespawnBalls : MonoBehaviour
 
     private void saveStartTransforms()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++)
         {
             //initialTransforms.Add(children_pins[0].transform);
             initialPositions.Add(children_balls[i].transform.position);
@@ -45,7 +45,7 @@ public class RespawnBalls : MonoBehaviour
     {
 
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++)
         {
             children_balls[i].transform.SetPositionAndRotation(initialPositions[i], initialRotations[i]);
             rigidBodies[i].velocity = Vector3.zero;
