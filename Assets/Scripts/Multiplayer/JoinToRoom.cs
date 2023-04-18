@@ -32,7 +32,7 @@ public class JoinToRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined Room");
-        PhotonNetwork.LoadLevel("Movement&ControlsScene");
+        PhotonNetwork.LoadLevel("Bowling");
     }
 
 }
