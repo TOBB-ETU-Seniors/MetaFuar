@@ -1,3 +1,4 @@
+using SettingsManagers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,6 @@ public class SessionWarningController : MonoBehaviour
 {
     [SerializeField]
     private GameObject sessionWarningPanel;
-    [SerializeField]
-    private float warnInEveryNseconds = 1200;
 
     private float lastWarning;
 
@@ -22,7 +21,7 @@ public class SessionWarningController : MonoBehaviour
     {
         float elapsedTime = Time.time - GeneralSettingsManager.GetSessionStartTime();
 
-        if ((elapsedTime - lastWarning) >= warnInEveryNseconds)
+        if ((elapsedTime - lastWarning) >= GeneralSettingsManager.sessionWarningTime * 60)
         {
             Instantiate(sessionWarningPanel);
             lastWarning = elapsedTime;

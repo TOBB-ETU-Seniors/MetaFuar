@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class JoinToRoom : MonoBehaviourPunCallbacks
 {
+    public string SceneName { get; set; } = "Fuar";
+    public static int spawnIndex { get; set; } = 0;
+
     public void JoinRoom()
     {
         Debug.Log("Joining the room");
@@ -32,7 +35,7 @@ public class JoinToRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined Room");
-        PhotonNetwork.LoadLevel("Movement&ControlsScene");
+        PhotonNetwork.LoadLevel(SceneName);
     }
 
 }
