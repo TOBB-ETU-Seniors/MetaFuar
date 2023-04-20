@@ -241,6 +241,18 @@ MonoBehaviour:
     m_Localized: IMPOSTAZIONI
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Localized: Tempo Di Avviso Di Sessione (Min)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Localized: Corto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Localized: Lungo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

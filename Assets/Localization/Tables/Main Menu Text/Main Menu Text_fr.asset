@@ -242,6 +242,18 @@ MonoBehaviour:
     m_Localized: "PARAM\xC8TRES"
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Localized: Temps D'Avertissement De Session (Min)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Localized: Court
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Localized: Long
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
