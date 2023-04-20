@@ -103,6 +103,18 @@ MonoBehaviour:
     m_Key: settings.off
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Key: settings.general.session_warning_time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Key: settings.general.short
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Key: settings.general.long
+    m_Metadata:
+      m_Items: []
   - m_Id: 1364729135132672
     m_Key: settings.graphics.ui_scale
     m_Metadata:

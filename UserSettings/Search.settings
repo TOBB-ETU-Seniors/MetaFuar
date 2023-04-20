@@ -13,6 +13,9 @@ scopes = {
 	"last_search.DE949528" = "sketchfab"
 	"OpenInspectorPreview.DE949528" = "0"
 	"currentGroup.DE949528" = "all"
+	"last_search.B655092D" = "st:short"
+	"OpenInspectorPreview.B655092D" = "0"
+	"currentGroup.B655092D" = "all"
 }
 providers = {
 	adb = {

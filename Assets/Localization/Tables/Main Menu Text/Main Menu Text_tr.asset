@@ -242,6 +242,18 @@ MonoBehaviour:
     m_Localized: AYARLAR
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Localized: "Oturum Uyar\u0131 S\xFCresi (dk)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Localized: "K\u0131sa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Localized: Uzun
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

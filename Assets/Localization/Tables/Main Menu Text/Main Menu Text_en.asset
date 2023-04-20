@@ -241,6 +241,18 @@ MonoBehaviour:
     m_Localized: SETTINGS
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Localized: Session Warning Time (min)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Localized: Short
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Localized: Long
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -242,6 +242,18 @@ MonoBehaviour:
     m_Localized: AJUSTES
     m_Metadata:
       m_Items: []
+  - m_Id: 16837132742197248
+    m_Localized: "Tiempo De Advertencia De Sesi\xF3n (Min)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557376
+    m_Localized: Corto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16837132771557377
+    m_Localized: Largo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
