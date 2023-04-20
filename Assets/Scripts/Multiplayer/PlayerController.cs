@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     {
         view = GetComponent<PhotonView>();
         if (!view.IsMine)
+        {
             m_camera.SetActive(false);
-
+            this.GetComponent<CharacterController>().enabled = false;
+        }
     }
 }
