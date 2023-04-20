@@ -4094,6 +4094,7 @@ GameObject:
   - component: {fileID: 192929571}
   - component: {fileID: 192929572}
   - component: {fileID: 192929576}
+  - component: {fileID: 192929577}
   m_Layer: 8
   m_Name: BowlingTopu2 (1)
   m_TagString: Untagged
@@ -4229,6 +4230,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &192929577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192929569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &195052194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8093,6 +8110,7 @@ GameObject:
   - component: {fileID: 385888524}
   - component: {fileID: 385888523}
   - component: {fileID: 385888522}
+  - component: {fileID: 385888529}
   m_Layer: 8
   m_Name: BowlingTopu2 (1)
   m_TagString: Untagged
@@ -8228,6 +8246,22 @@ Transform:
   m_Father: {fileID: 1950086391}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &385888529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385888521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &386976787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15920,6 +15954,7 @@ GameObject:
   - component: {fileID: 819530965}
   - component: {fileID: 819530966}
   - component: {fileID: 819530970}
+  - component: {fileID: 819530971}
   m_Layer: 8
   m_Name: BowlingTopu2
   m_TagString: Untagged
@@ -16055,6 +16090,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &819530971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819530963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &821599869
 GameObject:
   m_ObjectHideFlags: 0
@@ -32683,6 +32734,7 @@ GameObject:
   - component: {fileID: 1818655360}
   - component: {fileID: 1818655361}
   - component: {fileID: 1818655365}
+  - component: {fileID: 1818655366}
   m_Layer: 8
   m_Name: BowlingTopu2
   m_TagString: Untagged
@@ -32818,6 +32870,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1818655366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818655358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1821741116
 GameObject:
   m_ObjectHideFlags: 0
@@ -39067,6 +39135,7 @@ GameObject:
   - component: {fileID: 2129937252}
   - component: {fileID: 2129937253}
   - component: {fileID: 2129937257}
+  - component: {fileID: 2129937258}
   m_Layer: 8
   m_Name: BowlingTopu2 (1)
   m_TagString: Untagged
@@ -39202,6 +39271,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2129937258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129937250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &2130856154
 GameObject:
   m_ObjectHideFlags: 0
@@ -58009,6 +58094,7 @@ GameObject:
   - component: {fileID: 2656755514420269500}
   - component: {fileID: 1548469471493115637}
   - component: {fileID: 5089715527672886757}
+  - component: {fileID: 8966646922753339775}
   m_Layer: 8
   m_Name: BowlingTopu2
   m_TagString: Untagged
@@ -58016,6 +58102,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8966646922753339775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966646922753339774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!4 &8994457402419814325
 Transform:
   m_ObjectHideFlags: 0
