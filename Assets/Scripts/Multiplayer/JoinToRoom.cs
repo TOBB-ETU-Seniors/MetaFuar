@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class JoinToRoom : MonoBehaviourPunCallbacks
 {
-    public string SceneName { get; set; } = "Fuar";
+    public static string SceneName { get; set; } = "Fuar";
     public static int spawnIndex { get; set; } = 0;
 
     public void JoinRoom()

@@ -254,6 +254,86 @@ MonoBehaviour:
     m_Localized: Largo
     m_Metadata:
       m_Items: []
+  - m_Id: 17411748408619008
+    m_Localized: Recinto Ferial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173440
+    m_Localized: Club De Boliche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173441
+    m_Localized: "Exposici\xF3n De iPhone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173442
+    m_Localized: Entrada Del Estacionamiento 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173443
+    m_Localized: Entrada Del Estacionamiento 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173444
+    m_Localized: Pista De Carreras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173445
+    m_Localized: Orilla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173446
+    m_Localized: Ir Al Lugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173447
+    m_Localized: Ir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341248
+    m_Localized: "Informaci\xF3n Del Recinto Ferial"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341249
+    m_Localized: "Informaci\xF3n De Bowling Club"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341250
+    m_Localized: "Informaci\xF3n De Exhibici\xF3n De \u0130phone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341251
+    m_Localized: "Entrada Del Estacionamiento 1 Informaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341252
+    m_Localized: "Entrada Del Estacionamiento 2 \u0130nformaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341253
+    m_Localized: "Informaci\xF3n De Pista De Carreras"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341254
+    m_Localized: "Informaci\xF3n De Riverside"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440355385344
+    m_Localized: "Men\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440388939776
+    m_Localized: "\xBFEst\xE1s Seguro De Que Quieres Volver Al Men\xFA Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17649589180985344
+    m_Localized: "Men\xFA Principal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17673149211504640
+    m_Localized: "Volver Al Men\xFA Principal"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

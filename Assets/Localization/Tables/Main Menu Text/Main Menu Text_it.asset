@@ -253,6 +253,87 @@ MonoBehaviour:
     m_Localized: Lungo
     m_Metadata:
       m_Items: []
+  - m_Id: 17411748408619008
+    m_Localized: Area Fieristica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173440
+    m_Localized: Bowling Club
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173441
+    m_Localized: Mostra iPhone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173442
+    m_Localized: "Parcheggio Dell'\u0130ngresso 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173443
+    m_Localized: Parcheggio Entrance 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173444
+    m_Localized: Pista Da Gara
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173445
+    m_Localized: Fiume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173446
+    m_Localized: Andare Al Posto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173447
+    m_Localized: Andare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341248
+    m_Localized: Informazioni Sul Campo Fieristico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341249
+    m_Localized: Informazioni Sul Club Di Bowling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341250
+    m_Localized: "Informazioni Sulla Mostra Di \u0130phone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341251
+    m_Localized: "Parcheggio Di \u0130ngresso 1 Informazioni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341252
+    m_Localized: "Incordaz\u0131on\u0131 D\u0131 Ingress\u0131one D\u0131 Parchegg\u0131o
+      2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341253
+    m_Localized: Informazioni Sulla Pista Di Gara
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341254
+    m_Localized: Informazioni Sul Fiume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440355385344
+    m_Localized: "Men\xF9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440388939776
+    m_Localized: Sei Sicuro Di Voler Tornare Al Menu Principale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17649589180985344
+    m_Localized: Menu Principale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17673149211504640
+    m_Localized: Torna Al Menu Principale
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

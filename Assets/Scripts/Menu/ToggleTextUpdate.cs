@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;
 
 public class ToggleTextUpdate : MonoBehaviour, IPointerEnterHandler
 {
-    public string newHeaderText;
-    public string newBodyText;
+    public LocalizedString newHeaderText;
+    public LocalizedString newBodyText;
 
     private ScrollRect scrollRect;
     private GameObject Text { get; set; }
@@ -23,8 +24,9 @@ public class ToggleTextUpdate : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        headerText.text = newHeaderText;
-        bodyText.text = newBodyText;
+        headerText.text = newHeaderText.GetLocalizedString();
+        if (bodyText.IsActive())
+            bodyText.text = newBodyText.GetLocalizedString();
         scrollRect.OnDrag(eventData);
     }
 }

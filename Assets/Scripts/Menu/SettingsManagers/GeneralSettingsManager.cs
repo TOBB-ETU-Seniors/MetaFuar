@@ -1,13 +1,10 @@
 using SettingsManagers.Abstract;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SettingsManagers
 {
-
 
     public class GeneralSettingsManager : MonoBehaviour, ISettingsManager
     {
