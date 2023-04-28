@@ -253,6 +253,90 @@ MonoBehaviour:
     m_Localized: Long
     m_Metadata:
       m_Items: []
+  - m_Id: 17411748408619008
+    m_Localized: Fairground
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173440
+    m_Localized: Bowling Club
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173441
+    m_Localized: iPhone Exhibition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173442
+    m_Localized: Parking Lot Entrance 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173443
+    m_Localized: Parking Lot Entrance 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173444
+    m_Localized: Race Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173445
+    m_Localized: Riverside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173446
+    m_Localized: Go To The Place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173447
+    m_Localized: Go
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341248
+    m_Localized: Fairground Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341249
+    m_Localized: Bowling Club Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341250
+    m_Localized: iPhone Exhibition Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341251
+    m_Localized: Parking Lot Entrance 1 Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341252
+    m_Localized: Parking Lot Entrance 2 Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341253
+    m_Localized: Race Track Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341254
+    m_Localized: Riverside Informations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440355385344
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440388939776
+    m_Localized: Are You Sure You Want to Return to the Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17649589180985344
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17673149211504640
+    m_Localized: Return to Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19512716629667840
+    m_Localized: LOADING
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

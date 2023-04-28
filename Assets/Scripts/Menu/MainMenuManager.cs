@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -25,27 +26,25 @@ public class MainMenuManager : MonoBehaviour
     [Tooltip("The Loading Screen holding loading bar")]
     public GameObject loadingScreen;
 
-    [Header("COLORS - Tint")]
-    public Image[] panelGraphics;
-    public Image[] blurs;
-    public Color tint;
-
+    [Header("Date")]
     [Tooltip("The date and time display text at the bottom of the screen")]
     public TMP_Text dateDisplay;
     public TMP_Text timeDisplay;
     public bool showDate = true;
     public bool showTime = true;
 
+    [Header("Scene")]
+    public GameObject gameController;
     [Tooltip("The name of the scene loaded when a 'NEW GAME' is started")]
-    public string NewSceneName { get; set; }
+    public static string newSceneName { get; set; } = "Fuar";
+    public static int spawnIndex { get; set; } = 0;
 
     [Header("Debug")]
     Transform tempParent;
     public bool SetActiveMainMenuPanelOnStart = true;
 
     #endregion
-
-    void Start()
+    private void OnEnable()
     {
         // By default, starts on the main menu panel, disables others
         if (SetActiveMainMenuPanelOnStart)
@@ -61,35 +60,12 @@ public class MainMenuManager : MonoBehaviour
         if (loadingScreen != null)
             loadingScreen.SetActive(false);
 
-        // Set Colors if the user didn't before play
-        for (int i = 0; i < panelGraphics.Length; i++)
-        {
-            panelGraphics[i].color = tint;
-        }
-        for (int i = 0; i < blurs.Length; i++)
-        {
-            blurs[i].material.SetColor("_Color", tint);
-        }
-
-    }
-
-    public void SetTint()
-    {
-        for (int i = 0; i < panelGraphics.Length; i++)
-        {
-            panelGraphics[i].color = tint;
-        }
-        for (int i = 0; i < blurs.Length; i++)
-        {
-            blurs[i].material.SetColor("_Color", tint);
-        }
+        gameController = GameObject.Find("GameController");
     }
 
     // Just for reloading the scene! You can delete this function entirely if you want to
     void Update()
     {
-        SetTint();
-
         // Clock/Date Elements
         DateTime time = DateTime.Now;
         if (showTime) { timeDisplay.text = time.ToString("HH:mm:ss"); } else if (!showTime) { timeDisplay.text = ""; }
@@ -115,7 +91,7 @@ public class MainMenuManager : MonoBehaviour
     // Called when loading new scene
     public void LoadNewScene()
     {
-        StartCoroutine(LoadAsynchronously(NewSceneName));
+        StartCoroutine(LoadAsynchronously(newSceneName));
     }
 
     // Load Bar synching animation
@@ -135,5 +111,32 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void JoinScene()
+    {
+        JoinToRoom.SceneName = newSceneName;
+        JoinToRoom.spawnIndex = spawnIndex;
+        StartCoroutine(JoinSceneAsynchronously());
+    }
+
+    IEnumerator JoinSceneAsynchronously()
+    {
+        gameController.GetComponent<JoinToRoom>().JoinRoom();
+
+        Slider loadingBar = loadingScreen.GetComponentInChildren<Slider>();
+
+        float temp = 0f;
+
+        while (PhotonNetwork.LevelLoadingProgress != 1)
+        {
+            float progress = Mathf.Clamp01((PhotonNetwork.LevelLoadingProgress + temp) / .9f);
+            loadingBar.value = progress;
+
+            temp += 0.02f;
+
+            yield return null;
+        }
+
+        loadingBar.value = 1f;
+    }
 
 }

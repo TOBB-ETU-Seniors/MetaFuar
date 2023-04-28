@@ -15,6 +15,10 @@ MonoBehaviour:
   m_TableCollectionName: Main Menu Text
   m_TableCollectionNameGuidString: b657aea122b8fd64cba15f4d6c89d426
   m_Entries:
+  - m_Id: 17649589180985344
+    m_Key: main_menu
+    m_Metadata:
+      m_Items: []
   - m_Id: 5749667570810880
     m_Key: social
     m_Metadata:
@@ -39,12 +43,72 @@ MonoBehaviour:
     m_Key: exit
     m_Metadata:
       m_Items: []
+  - m_Id: 19512716629667840
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
   - m_Id: 5749667616948226
     m_Key: explore.explore_title
     m_Metadata:
       m_Items: []
   - m_Id: 5749667616948227
     m_Key: explore.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748408619008
+    m_Key: explore.fairground
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173440
+    m_Key: explore.bowling_club
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173441
+    m_Key: explore.iphone_exhibition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173442
+    m_Key: explore.parking_lot_entrance_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173443
+    m_Key: explore.parking_lot_entrance_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173444
+    m_Key: explore.race_track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173445
+    m_Key: explore.riverside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341248
+    m_Key: explore.fairground_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341249
+    m_Key: explore.bowling_club_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341250
+    m_Key: explore.iphone_exhibition_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341251
+    m_Key: explore.parking_lot_entrance_1_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341252
+    m_Key: explore.parking_lot_entrance_2_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341253
+    m_Key: explore.race_track_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17416350860341254
+    m_Key: explore.riverside_info
     m_Metadata:
       m_Items: []
   - m_Id: 5756064500973568
@@ -245,6 +309,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 225037674250242
     m_Key: settings.language.show_subtitles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440355385344
+    m_Key: hand_menu.menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17673149211504640
+    m_Key: hand_menu.return_main_menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17640440388939776
+    m_Key: hand_menu.exit_confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173446
+    m_Key: hand_menu.transport.go_to_the_place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17411748442173447
+    m_Key: hand_menu.transport.go
     m_Metadata:
       m_Items: []
   m_Metadata:

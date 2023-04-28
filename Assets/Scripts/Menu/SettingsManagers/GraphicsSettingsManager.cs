@@ -79,6 +79,8 @@ namespace SettingsManagers
         {
             currentURPAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
 
+            globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+
             GetAndSetInitialValues();
         }
 

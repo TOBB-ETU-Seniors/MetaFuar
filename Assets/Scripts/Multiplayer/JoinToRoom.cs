@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class JoinToRoom : MonoBehaviourPunCallbacks
 {
-    public string SceneName { get; set; } = "Fuar";
+    public static string RoomName { get; set; } = "Room1";
+    public static string SceneName { get; set; } = "Fuar";
     public static int spawnIndex { get; set; } = 0;
 
     public void JoinRoom()
     {
         Debug.Log("Joining the room");
-        PhotonNetwork.JoinRoom("Room1");        
+        PhotonNetwork.JoinRoom(RoomName);   
     }
 
     public override void OnConnectedToMaster()
