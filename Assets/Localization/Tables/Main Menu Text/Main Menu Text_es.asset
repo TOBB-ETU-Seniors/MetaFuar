@@ -334,6 +334,10 @@ MonoBehaviour:
     m_Localized: "Volver Al Men\xFA Principal"
     m_Metadata:
       m_Items: []
+  - m_Id: 19512716629667840
+    m_Localized: CARGANDO
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

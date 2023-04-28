@@ -333,6 +333,10 @@ MonoBehaviour:
     m_Localized: Return to Main Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 19512716629667840
+    m_Localized: LOADING
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

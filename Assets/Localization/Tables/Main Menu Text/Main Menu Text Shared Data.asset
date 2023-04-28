@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: exit
     m_Metadata:
       m_Items: []
+  - m_Id: 19512716629667840
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
   - m_Id: 5749667616948226
     m_Key: explore.explore_title
     m_Metadata:

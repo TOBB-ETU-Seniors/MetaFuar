@@ -334,6 +334,10 @@ MonoBehaviour:
     m_Localized: "Ana Men\xFCye D\xF6n"
     m_Metadata:
       m_Items: []
+  - m_Id: 19512716629667840
+    m_Localized: "Y\xDCKLEN\u0130YOR"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

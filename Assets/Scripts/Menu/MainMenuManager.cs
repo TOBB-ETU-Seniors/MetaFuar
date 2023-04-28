@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Components;
+using Photon.Pun;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -24,8 +23,6 @@ public class MainMenuManager : MonoBehaviour
     public GameObject aboutPanel;
     [Tooltip("The UI Panel holding the Exit Panel elements")]
     public GameObject exitPanel;
-    [Tooltip("The UI Panel holding the Hand Menu Exit Panel elements")]
-    public GameObject exitPanel_Hand;
     [Tooltip("The Loading Screen holding loading bar")]
     public GameObject loadingScreen;
 
@@ -36,29 +33,15 @@ public class MainMenuManager : MonoBehaviour
     public bool showDate = true;
     public bool showTime = true;
 
+    [Header("Scene")]
+    public GameObject gameController;
     [Tooltip("The name of the scene loaded when a 'NEW GAME' is started")]
-    public string NewSceneName { get; set; }
+    public static string newSceneName { get; set; } = "Fuar";
+    public static int spawnIndex { get; set; } = 0;
 
     [Header("Debug")]
     Transform tempParent;
     public bool SetActiveMainMenuPanelOnStart = true;
-
-    public LocalizedString mainMenuTitle;
-    public LocalizedString handMenuTitle;
-
-    [Header("Hand Menu")]
-    public bool HandMenu = false;
-    private bool HandMenu_Old = false;
-    private bool isMenuAdjusted = false;
-
-    [Header("Different Buttons in Main Menu and Hand Menu")]
-    public GameObject MenuTitleObject;
-    public GameObject Btn_EnterShowroom;
-    public GameObject Btn_About;
-    public GameObject Btn_Exit;
-    public GameObject Btn_Exit_Hand;
-
-    private GameObject gameController;
 
     #endregion
     private void OnEnable()
@@ -74,25 +57,8 @@ public class MainMenuManager : MonoBehaviour
             aboutPanel.SetActive(false);
         if (exitPanel != null)
             exitPanel.SetActive(false);
-        if (exitPanel_Hand != null)
-            exitPanel_Hand.SetActive(false);
         if (loadingScreen != null)
             loadingScreen.SetActive(false);
-
-        if (!isMenuAdjusted)
-        {
-            if (SceneManager.GetActiveScene().name == "Menu")
-            {
-                HandMenu = false;
-                MainMenuAdjustments();
-            }
-            else
-            {
-                HandMenu = true;
-                HandMenuAdjustments();
-            }
-            isMenuAdjusted = true;
-        }
 
         gameController = GameObject.Find("GameController");
     }
@@ -100,61 +66,10 @@ public class MainMenuManager : MonoBehaviour
     // Just for reloading the scene! You can delete this function entirely if you want to
     void Update()
     {
-        if (HandMenu != HandMenu_Old)
-        {
-            HandMenu_Old = HandMenu;
-            isMenuAdjusted = false;
-        }
-
-        if (!isMenuAdjusted)
-        {
-            if (HandMenu)
-                HandMenuAdjustments();
-            else
-                MainMenuAdjustments();
-            isMenuAdjusted = true;
-        }
-
         // Clock/Date Elements
         DateTime time = DateTime.Now;
         if (showTime) { timeDisplay.text = time.ToString("HH:mm:ss"); } else if (!showTime) { timeDisplay.text = ""; }
         if (showDate) { dateDisplay.text = time.ToString("yyyy/MM/dd"); } else if (!showDate) { dateDisplay.text = ""; }
-    }
-
-    void MainMenuAdjustments()
-    {
-        gameObject.layer = LayerMask.NameToLayer("Transparent_UI");
-
-        if (MenuTitleObject != null)
-            MenuTitleObject.GetComponent<LocalizeStringEvent>().StringReference = mainMenuTitle;
-        if (Btn_EnterShowroom != null)
-            Btn_EnterShowroom.SetActive(true);
-        if(Btn_About != null)
-            Btn_About.SetActive(true);
-        if(Btn_Exit != null)
-            Btn_Exit.SetActive(true);
-        if (Btn_Exit_Hand != null)
-            Btn_Exit_Hand.SetActive(false);
-
-        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080);
-    }
-
-    void HandMenuAdjustments()
-    {
-        gameObject.layer = LayerMask.NameToLayer("UI");
-
-        if (MenuTitleObject != null)
-            MenuTitleObject.GetComponent<LocalizeStringEvent>().StringReference = handMenuTitle;
-        if (Btn_EnterShowroom != null)
-            Btn_EnterShowroom.SetActive(false);
-        if (Btn_About != null)
-            Btn_About.SetActive(false);
-        if (Btn_Exit != null)
-            Btn_Exit.SetActive(false);
-        if (Btn_Exit_Hand != null)
-            Btn_Exit_Hand.SetActive(true);
-
-        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1250, 1080);
     }
 
     public void MoveToFront(GameObject currentObj)
@@ -176,7 +91,7 @@ public class MainMenuManager : MonoBehaviour
     // Called when loading new scene
     public void LoadNewScene()
     {
-        StartCoroutine(LoadAsynchronously(NewSceneName));
+        StartCoroutine(LoadAsynchronously(newSceneName));
     }
 
     // Load Bar synching animation
@@ -196,12 +111,32 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    /*public void joinScene(int spawnPointIndex)
+    public void JoinScene()
     {
-        JoinToRoom.SceneName = NewSceneName;
-        JoinToRoom.spawnIndex = spawnPointIndex;
-        gameController.GetComponent<JoinToRoom>().JoinRoom();
-    }*/
+        JoinToRoom.SceneName = newSceneName;
+        JoinToRoom.spawnIndex = spawnIndex;
+        StartCoroutine(JoinSceneAsynchronously());
+    }
 
+    IEnumerator JoinSceneAsynchronously()
+    {
+        gameController.GetComponent<JoinToRoom>().JoinRoom();
+
+        Slider loadingBar = loadingScreen.GetComponentInChildren<Slider>();
+
+        float temp = 0f;
+
+        while (PhotonNetwork.LevelLoadingProgress != 1)
+        {
+            float progress = Mathf.Clamp01((PhotonNetwork.LevelLoadingProgress + temp) / .9f);
+            loadingBar.value = progress;
+
+            temp += 0.02f;
+
+            yield return null;
+        }
+
+        loadingBar.value = 1f;
+    }
 
 }

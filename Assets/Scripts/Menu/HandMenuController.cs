@@ -8,12 +8,20 @@ public class HandMenuController : MonoBehaviour
     // Reference to the hand menu GameObject
     public GameObject handMenu;
 
+    private void OnEnable()
+    {
+        handMenu.SetActive(false);
+    }
+
     void Update()
     {
         // Check if the menu button on the Oculus controller has been pressed
-        if (OVRInput.GetDown(OVRInput.Button.Two) && SceneManager.GetActiveScene().name != "Menu")
+        if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            handMenu.SetActive(!handMenu.activeSelf);
+            if (SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "LoginScene")
+            {
+                handMenu.SetActive(!handMenu.activeSelf);
+            }
         }
     }
 
