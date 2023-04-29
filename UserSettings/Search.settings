@@ -16,6 +16,9 @@ scopes = {
 	"last_search.B655092D" = "st:main menu"
 	"OpenInspectorPreview.B655092D" = "0"
 	"currentGroup.B655092D" = "all"
+	"last_search.DD5CDDE4" = "Box collider"
+	"OpenInspectorPreview.DD5CDDE4" = "0"
+	"currentGroup.DD5CDDE4" = "scene"
 }
 providers = {
 	adb = {
@@ -72,6 +75,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"Box collider"
 ]
 searchItemFavorites = [
 ]

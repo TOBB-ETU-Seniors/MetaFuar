@@ -61,6 +61,9 @@ public class MainMenuManager : MonoBehaviour
             loadingScreen.SetActive(false);
 
         gameController = GameObject.Find("GameController");
+
+        newSceneName = "Fuar";
+        spawnIndex = 0;
     }
 
     // Just for reloading the scene! You can delete this function entirely if you want to
