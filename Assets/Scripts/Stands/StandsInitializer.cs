@@ -11,8 +11,9 @@ using System;
 public class StandsInitializer : MonoBehaviour
 {
 
+
     // find a better way to initialize this
-    string backenduri = "localhost:8000";
+    string backenduri = "https://34.118.241.44:8001";
 
 
     // Altindaki urunleri ara(bunlarin sahnedeki isimleri ile veritabanindan cektigimiz isimleri eslestirecegiz)
@@ -24,12 +25,20 @@ public class StandsInitializer : MonoBehaviour
 
     IEnumerator GetFairItems()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/get_fair_items"))
+        UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/get_fair_items");
+        webRequest.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
+        webRequest.useHttpContinue = false;
+        using (webRequest)
         {
+
+
+
+            Debug.Log("Get Fair Items Called");
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
 
+            Debug.Log(webRequest.error);
             switch (webRequest.result)
             {
                 case UnityWebRequest.Result.Success:
@@ -98,7 +107,10 @@ public class StandsInitializer : MonoBehaviour
                     Debug.Log(webRequest.downloadHandler);
 
                     break;
-
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.Log("Could not connect to the server");
+                    
+                    break;
             }
 
 
