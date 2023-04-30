@@ -35,6 +35,8 @@ public class LoginManager : MonoBehaviour
     public GameObject registerPanel;
     [Tooltip("The UI Panel holding the Email Login Panel elements")]
     public GameObject emailLoginPanel;
+    [Tooltip("The UI Panel holding the Token Login Panel elements")]
+    public GameObject tokenLoginPanel;
     [Tooltip("The UI Panel holding the Continue Without Account Panel elements")]
     public GameObject continueWithoutAccountPanel;
     [Tooltip("The UI Panel holding the Email Register Panel elements")]
@@ -45,6 +47,7 @@ public class LoginManager : MonoBehaviour
     public GameObject exitPanel;
     [Tooltip("The Loading Screen holding loading bar")]
     public GameObject loadingScreen;
+
 
     [Header("COLORS - Tint")]
     public Image[] panelGraphics;
@@ -85,6 +88,8 @@ public class LoginManager : MonoBehaviour
             exitPanel.SetActive(false);
         if (loadingScreen != null)
             loadingScreen.SetActive(false);
+        if (tokenLoginPanel != null)
+            tokenLoginPanel.SetActive(false);
 
         inputValidator = new InputValidator();
 
@@ -118,12 +123,21 @@ public class LoginManager : MonoBehaviour
         Debug.Log("Facebook ile giriþ yapýldý.");
     }
 
+    public void LoginWithToken()
+    {
+        string token = tokenLoginPanel.GetComponentInChildren<TMP_InputField>().text;
+        Debug.Log("Token: " + token + " ile giriþ yapýlýyor.");
+        StartCoroutine(loginBackend.LogInWithToken(token));
+    }
+
     public void ContinueWithoutAccount()
     {
         string usernameText = continueWithoutAccountPanel.GetComponentInChildren<TMP_InputField>().text;
         Debug.Log("Misafir olarak giriþ yapýldý.\n" +
                 "Kullanýcý Adý: " + usernameText);
     }
+
+
 
     #endregion
 
