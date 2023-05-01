@@ -127,9 +127,11 @@ public class LoginManager : MonoBehaviour
     {
         string token = tokenLoginPanel.GetComponentInChildren<TMP_InputField>().text;
         Debug.Log("Token: " + token + " ile giriþ yapýlýyor.");
-        StartCoroutine(loginBackend.LogInWithToken(token, id =>
+        StartCoroutine(loginBackend.LogInWithToken(token, info =>
         {
-            GameController.logId = id;
+            GameController.logId = info.user_id;
+            GameController.usrName = info.user_name;
+
 
             SceneManager.LoadScene("Menu");
         }));
