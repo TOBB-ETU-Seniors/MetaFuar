@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class Product : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public int product_id;
-    public int product_name;
+    public string product_id;
+    public string product_name;
     public int price;
 
     [SerializeField] private RawImage rawImage;
@@ -41,12 +41,12 @@ public class Product : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         this.price = price;
     }
 
-    public IEnumerator SetImages(string[] image_links)
+    public IEnumerator SetImage(string image_link)
     {
         Debug.Log("I have received the following image links:");
-        Debug.Log(image_links);
+        Debug.Log(image_link);
 
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(image_links[0]);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(image_link);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -61,20 +61,15 @@ public class Product : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public void PurchaseItem(int itemCode)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnProductToggleValueChanged(bool value)
     {
         if (value)
         {
-            inventoryManager.addSelectedProduct(this);
+            inventoryManager.AddSelectedProduct(this);
         }
         else
         {
-            inventoryManager.removeSelectedProduct(this);
+            inventoryManager.RemoveSelectedProduct(this);
         }
     }
 
