@@ -209,10 +209,6 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933654
-  - m_Id: 5749667570810880
-    m_Localized: Social
-    m_Metadata:
-      m_Items: []
   - m_Id: 5749667612753920
     m_Localized: Explore
     m_Metadata:
@@ -335,6 +331,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19512716629667840
     m_Localized: LOADING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20812907903217664
+    m_Localized: Inventory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20815298056712192
+    m_Localized: INVENTORY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20841735048425472
+    m_Localized: Delete Products
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843261464702976
+    m_Localized: Are you sure you want to delete selected Products?
     m_Metadata:
       m_Items: []
   references:

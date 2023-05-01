@@ -19,6 +19,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settingsPanel;
     [Tooltip("The UI Panel holding the Explore Panel elements")]
     public GameObject explorePanel;
+    [Tooltip("The UI Panel holding the Inventory Panel elements")]
+    public GameObject inventoryPanel;
     [Tooltip("The UI Panel holding the about")]
     public GameObject aboutPanel;
     [Tooltip("The UI Panel holding the Exit Panel elements")]
@@ -53,6 +55,8 @@ public class MainMenuManager : MonoBehaviour
             settingsPanel.SetActive(false);
         if (explorePanel != null)
             explorePanel.SetActive(false);
+        if (inventoryPanel != null)
+            inventoryPanel.SetActive(false);
         if (aboutPanel != null)
             aboutPanel.SetActive(false);
         if (exitPanel != null)
