@@ -117,15 +117,15 @@ public class HandMenuManager : MonoBehaviour
 
                 gameController.GetComponent<JoinToRoom>().JoinRoom();*/
 
-        //PhotonNetwork.LoadLevel(newSceneName);
+        PhotonNetwork.LoadLevel(newSceneName);
 
-        PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.LeaveRoom();
 
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         //GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
 
 
-        gameController.GetComponent<JoinToRoom>().JoinRoom();
+        //gameController.GetComponent<JoinToRoom>().JoinRoom();
 
         Slider loadingBar = loadingScreen.GetComponentInChildren<Slider>();
 
