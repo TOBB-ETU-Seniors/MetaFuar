@@ -8,28 +8,23 @@ public class loginBackend : MonoBehaviour
 {
     static string backenduri = "https://34.118.241.44:8001";
 
-    [System.Serializable]
-    public class LoginData
-    {
-        public string login_code;
-    }
 
-    public static IEnumerator LogInWithToken(string token)
-    {
-        LoginData jsonData = new LoginData();
-        jsonData.login_code = token;
-        
-        string jsonStr = JsonUtility.ToJson(jsonData);
-        Debug.Log(jsonStr);
+    public delegate void LoginCallback(string id);
 
-        UnityWebRequest request = UnityWebRequest.Post(backenduri+ "/verify_code", jsonStr);
+
+    public static IEnumerator LogInWithToken(string token, LoginCallback callback)
+    {
+
+        UnityWebRequest request = UnityWebRequest.Get(backenduri + "/verify_code?login_code=" + token);
+        Debug.Log("Sended:" + backenduri + "/verify_code?login_code=" + token);
 
         request.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
         request.useHttpContinue = false;
 
         yield return request.SendWebRequest();
 
-        Debug.Log(request.downloadHandler.text);
 
+        Debug.Log("Logined to id:" + request.downloadHandler.text);
+        callback(request.downloadHandler.text);
     }
 }
