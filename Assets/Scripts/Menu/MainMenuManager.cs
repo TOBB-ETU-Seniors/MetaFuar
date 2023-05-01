@@ -68,6 +68,8 @@ public class MainMenuManager : MonoBehaviour
 
         newSceneName = "Fuar";
         spawnIndex = 0;
+
+        StartCoroutine(PrepareInventoryPanel());
     }
 
     // Just for reloading the scene! You can delete this function entirely if you want to
@@ -77,6 +79,7 @@ public class MainMenuManager : MonoBehaviour
         DateTime time = DateTime.Now;
         if (showTime) { timeDisplay.text = time.ToString("HH:mm:ss"); } else if (!showTime) { timeDisplay.text = ""; }
         if (showDate) { dateDisplay.text = time.ToString("yyyy/MM/dd"); } else if (!showDate) { dateDisplay.text = ""; }
+
     }
 
     public void MoveToFront(GameObject currentObj)
@@ -146,4 +149,21 @@ public class MainMenuManager : MonoBehaviour
         loadingBar.value = 1f;
     }
 
+
+
+    IEnumerator PrepareInventoryPanel()
+    {
+
+        inventoryPanel.SetActive(true);
+        MoveToFront(mainMenuPanel);
+        inventoryPanel.transform.localScale = new Vector3(0,0,0);
+
+        Coroutine myCoroutine = StartCoroutine(inventoryPanel.GetComponent<InventoryManager>()._GetProductsInInventory());
+
+        // Wait until the coroutine has finished
+        yield return myCoroutine;
+
+        inventoryPanel.SetActive(false);
+        inventoryPanel.transform.localScale = new Vector3(1, 1, 1);
+    }
 }

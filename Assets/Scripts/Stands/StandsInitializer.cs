@@ -13,7 +13,7 @@ public class StandsInitializer : MonoBehaviour
 
 
     // find a better way to initialize this
-    string backenduri = "https://34.118.241.44:8002";
+    string backenduri = "https://34.118.241.44:8001";
 
 
     // Altindaki urunleri ara(bunlarin sahnedeki isimleri ile veritabanindan cektigimiz isimleri eslestirecegiz)

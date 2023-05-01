@@ -60,6 +60,8 @@ public class HandMenuManager : MonoBehaviour
 
         photonView = oVRPlayer.GetComponent<PhotonView>();
         characterController = oVRPlayer.GetComponent<CharacterController>();
+
+        StartCoroutine(PrepareInventoryPanel());
     }
 
     public void MoveToFront(GameObject currentObj)
@@ -146,6 +148,22 @@ public class HandMenuManager : MonoBehaviour
         }
 
         loadingBar.value = 1f;
+    }
+
+    IEnumerator PrepareInventoryPanel()
+    {
+
+        inventoryPanel.SetActive(true);
+        MoveToFront(handMenuPanel);
+        inventoryPanel.transform.localScale = new Vector3(0, 0, 0);
+
+        Coroutine myCoroutine = StartCoroutine(inventoryPanel.GetComponent<InventoryManager>()._GetProductsInInventory());
+
+        // Wait until the coroutine has finished
+        yield return myCoroutine;
+
+        inventoryPanel.SetActive(false);
+        inventoryPanel.transform.localScale = new Vector3(1, 1, 1);
     }
 
 }
