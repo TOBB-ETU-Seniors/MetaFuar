@@ -19,8 +19,8 @@ MonoBehaviour:
     m_Key: main_menu
     m_Metadata:
       m_Items: []
-  - m_Id: 5749667570810880
-    m_Key: social
+  - m_Id: 20812907903217664
+    m_Key: inventory
     m_Metadata:
       m_Items: []
   - m_Id: 5749667612753920
@@ -109,6 +109,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 17416350860341254
     m_Key: explore.riverside_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20815298056712192
+    m_Key: inventory.inventory_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20841735048425472
+    m_Key: inventory.delete_products
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843261464702976
+    m_Key: inventory.delete_confirmation
     m_Metadata:
       m_Items: []
   - m_Id: 5756064500973568

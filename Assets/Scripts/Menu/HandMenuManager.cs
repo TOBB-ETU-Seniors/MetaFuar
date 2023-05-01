@@ -16,6 +16,8 @@ public class HandMenuManager : MonoBehaviour
     public GameObject settingsPanel;
     [Tooltip("The UI Panel holding the Explore Panel elements")]
     public GameObject explorePanel;
+    [Tooltip("The UI Panel holding the Inventory Panel elements")]
+    public GameObject inventoryPanel;
     [Tooltip("The UI Panel holding the Exit Panel elements")]
     public GameObject exitPanel;
     [Tooltip("The Loading Screen holding loading bar")]
@@ -45,6 +47,8 @@ public class HandMenuManager : MonoBehaviour
             settingsPanel.SetActive(false);
         if (explorePanel != null)
             explorePanel.SetActive(false);
+        if (inventoryPanel != null)
+            inventoryPanel.SetActive(false);
         if (exitPanel != null)
             exitPanel.SetActive(false);
         if (loadingScreen != null)

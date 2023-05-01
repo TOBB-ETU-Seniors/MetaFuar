@@ -210,10 +210,6 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933652
-  - m_Id: 5749667570810880
-    m_Localized: Sozial
-    m_Metadata:
-      m_Items: []
   - m_Id: 5749667612753920
     m_Localized: Erkunden
     m_Metadata:
@@ -336,6 +332,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19512716629667840
     m_Localized: WIRD GELADEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20812907903217664
+    m_Localized: Inventar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20815298056712192
+    m_Localized: INVENTAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20841735048425472
+    m_Localized: "Produkte L\xF6schen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843261464702976
+    m_Localized: "Sind Sie Sicher, Dass Sie Ausgew\xE4hlte Produkte L\xF6schen M\xF6chten?"
     m_Metadata:
       m_Items: []
   references:

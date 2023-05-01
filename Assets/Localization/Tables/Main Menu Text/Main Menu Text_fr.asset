@@ -210,10 +210,6 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6904163636196933650
-  - m_Id: 5749667570810880
-    m_Localized: Social
-    m_Metadata:
-      m_Items: []
   - m_Id: 5749667612753920
     m_Localized: Explorer
     m_Metadata:
@@ -336,6 +332,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19512716629667840
     m_Localized: CHARGEMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20812907903217664
+    m_Localized: Inventaire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20815298056712192
+    m_Localized: INVENTAIRE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20841735048425472
+    m_Localized: Supprimer Les Produits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843261464702976
+    m_Localized: "\xCAtes-Vous S\xFBr De Vouloir Supprimer Des Produits S\xE9lectionn\xE9s?"
     m_Metadata:
       m_Items: []
   references:
