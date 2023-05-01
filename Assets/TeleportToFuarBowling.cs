@@ -40,12 +40,15 @@ public class TeleportToFuarBowling : MonoBehaviour
 
     IEnumerator JoinSceneAsynchronously()
     {
-        /*        PhotonNetwork.LeaveRoom();
-                PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.LeaveRoom();
 
-                gameController.GetComponent<JoinToRoom>().JoinRoom();*/
+        yield return new WaitForSeconds(2);
+        GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
 
-        PhotonNetwork.LoadLevel(newSceneName);
+
+        gameController.GetComponent<JoinToRoom>().JoinRoom();
+
+        //PhotonNetwork.LoadLevel(newSceneName);
         yield return null;
 
     }
