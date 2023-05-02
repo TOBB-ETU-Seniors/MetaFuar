@@ -28,6 +28,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddProduct(Product product)
     {
+        panelUpToDate = false;
         foreach (GameObject toggle in productToggles)
         {
             if (toggle.GetComponent<Product>().product_id == product.product_id)
@@ -76,7 +77,7 @@ public class InventoryManager : MonoBehaviour
         foreach (GameObject productToggle in selectedProductToggles)
         {
             Product toggleProduct = productToggle.GetComponent<Product>();
-            StartCoroutine(_DeleteProductInInventory("63e4ae12f9bdcd50c8e582d6", toggleProduct.product_id));
+            StartCoroutine(_DeleteProductInInventory(GameController.logId, toggleProduct.product_id));
             productToggles.Remove(productToggle);
             Debug.Log("Silindi: " + toggleProduct.product_name);
         }
@@ -93,7 +94,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (!panelUpToDate)
         {
-            UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/get_inventory?user_id=" + "63e4ae12f9bdcd50c8e582d6");
+            UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/get_inventory?user_id=" + GameController.logId);
             webRequest.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
             webRequest.useHttpContinue = false;
             using (webRequest)

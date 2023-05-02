@@ -72,7 +72,7 @@ public class ItemPanelController : MonoBehaviour
             {
                 case UnityWebRequest.Result.Success:
 
-                    UnityWebRequest webRequest2 = UnityWebRequest.Get(backenduri + "/get_inventory?user_id=" + "63e4ae12f9bdcd50c8e582d6");
+                    UnityWebRequest webRequest2 = UnityWebRequest.Get(backenduri + "/get_inventory?user_id=" + GameController.logId);
                     webRequest2.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
                     webRequest2.useHttpContinue = false;
                     using (webRequest2)
@@ -110,7 +110,7 @@ public class ItemPanelController : MonoBehaviour
 
                                 if (userInfo.user_balance >= price)
                                 {
-                                    StartCoroutine(_PurchaseItem("63e4ae12f9bdcd50c8e582d6", db_id, db_price));
+                                    StartCoroutine(_PurchaseItem(GameController.logId, db_id, db_price));
                                 }
 
                                 Debug.Log(webRequest.downloadHandler);
@@ -143,7 +143,7 @@ public class ItemPanelController : MonoBehaviour
         data.Add("user", userId);
         data.Add("base_item", productId);
 
-        UnityWebRequest webRequest = UnityWebRequest.Post(backenduri + "/add_to_users_inventory", JsonConvert.SerializeObject(data));
+        UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/add_to_users_inventory?user="+ userId + "&base_item="+productId);
         webRequest.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
         webRequest.useHttpContinue = false;
         using (webRequest)
@@ -178,7 +178,7 @@ public class ItemPanelController : MonoBehaviour
         data.Add("user", userId);
         data.Add("change_amount", (-price).ToString());
 
-        UnityWebRequest webRequest = UnityWebRequest.Post(backenduri + "/update_user_balance", JsonConvert.SerializeObject(data));
+        UnityWebRequest webRequest = UnityWebRequest.Get(backenduri + "/update_user_balance?user=" + userId + "&change_amount=" + (-price).ToString());
         webRequest.certificateHandler = new AcceptAllCertificatesSignedWithASpecificKeyPublicKey();
         webRequest.useHttpContinue = false;
         using (webRequest)

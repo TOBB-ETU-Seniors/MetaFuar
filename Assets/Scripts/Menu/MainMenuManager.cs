@@ -45,6 +45,8 @@ public class MainMenuManager : MonoBehaviour
     Transform tempParent;
     public bool SetActiveMainMenuPanelOnStart = true;
 
+    public TMP_Text playerNameText;
+
     #endregion
     private void OnEnable()
     {
@@ -65,6 +67,8 @@ public class MainMenuManager : MonoBehaviour
             loadingScreen.SetActive(false);
 
         gameController = GameObject.Find("GameController");
+
+        playerNameText.text = GameController.usrName;
 
         newSceneName = "Fuar";
         spawnIndex = 0;
