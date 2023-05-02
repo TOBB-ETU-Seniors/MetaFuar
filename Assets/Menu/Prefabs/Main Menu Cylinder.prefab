@@ -1205,9 +1205,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JoinToRoom, ScriptsAssembly
-        m_MethodName: set_SceneName
+      - m_Target: {fileID: 499305553469140543}
+        m_TargetAssemblyTypeName: MainMenuManager, MenuAssembly
+        m_MethodName: set_newSceneName
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1217,8 +1217,8 @@ MonoBehaviour:
           m_StringArgument: Fuar
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JoinToRoom, ScriptsAssembly
+      - m_Target: {fileID: 499305553469140543}
+        m_TargetAssemblyTypeName: MainMenuManager, MenuAssembly
         m_MethodName: set_spawnIndex
         m_Mode: 3
         m_Arguments:
@@ -8439,17 +8439,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\n\n\n\n\nAbd\xFCssamet T\xFCrker\nAhmet Said \xC7itak\nAlper
-    Bah\xE7ekap\u0131l\u0131\nErdem Aky\xFCz\nHasan Erdem Ak\n\ntaraf\u0131ndan tasarlanm\u0131\u015Ft\u0131r.\n\nLorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Quisque maximus, magna sit
-    amet lobortis sollicitudin, leo lectus aliquet enim, a aliquet mauris nisl et
-    orci. Duis ac mauris varius, elementum nisi quis, ornare orci. Nunc tristique
-    lorem orci, ut auctor felis venenatis quis. Morbi venenatis ornare augue, eget
-    consectetur leo ornare quis. Sed tempus suscipit mattis. Phasellus quis orci
-    sed turpis egestas semper et scelerisque libero. Suspendisse posuere nulla diam,
-    a vehicula quam imperdiet facilisis. Proin pharetra lorem eget sollicitudin egestas.
-    Etiam efficitur eu lorem nec malesuada. Cras ac lacus quis diam lacinia porttitor
-    eget vitae eros.\n\nTOBB ET\xDC SENIORS \xC7\xD6Z\xDCMLER\u0130 2023"
+  m_text: "\n\n\n\n\n\n\n\n\nBu \xFCr\xFCn, ger\xE7ek d\xFCnyadaki bir fuar alan\u0131n\u0131,
+    kullan\u0131c\u0131lar\u0131n sanal ger\xE7eklikte bir firman\u0131n g\xF6steri
+    salonuna girebilecekleri, ger\xE7ek insanlarla etkile\u015Fime girebilecekleri
+    ve oyunlar oynayabilecekleri daha iyi bir g\xF6rsel deneyimle birle\u015Ftirilmesidir.
+    Bu sayede m\xFC\u015Fteri memnuniyetini ve \xFCr\xFCnleri alma ihtimallerini
+    art\u0131rma hedeflenmektedir.\r\nProje tan\u0131m\u0131 gere\u011Fi sanal bir
+    ortamda ger\xE7ekle\u015Ftirildi\u011Finden herhangi bir firman\u0131n \xFCr\xFCn\xFCn\xFC
+    tan\u0131tabilmesi i\xE7in de minimal efor sarf etmesi gerekiyor. \xDCr\xFCnlerinin
+    3D modellerini olu\u015Fturmalar\u0131, \xF6rnek resimler sa\u011Flamalar\u0131,
+    \xFCr\xFCnlerin detaylar\u0131n\u0131 metin olarak sa\u011Flamalar\u0131 platformumuza
+    eklenmesi i\xE7in yeterli olmaktad\u0131r.\r\n\nAbd\xFCssamet T\xFCrker\nAhmet
+    Said \xC7itak\nAlper Bah\xE7ekap\u0131l\u0131\nErdem Aky\xFCz\nHasan Erdem Ak\n\ntaraf\u0131ndan
+    tasarlanm\u0131\u015Ft\u0131r.\n\n\nTOBB ET\xDC SENIORS \xC7\xD6Z\xDCMLER\u0130
+    2023"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42266,6 +42269,7 @@ MonoBehaviour:
   showTime: 0
   gameController: {fileID: 0}
   SetActiveMainMenuPanelOnStart: 1
+  playerNameText: {fileID: 0}
 --- !u!114 &499305553469140542
 MonoBehaviour:
   m_ObjectHideFlags: 0

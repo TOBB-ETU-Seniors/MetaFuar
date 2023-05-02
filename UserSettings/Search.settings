@@ -19,6 +19,9 @@ scopes = {
 	"last_search.DD5CDDE4" = "Box collider"
 	"OpenInspectorPreview.DD5CDDE4" = "0"
 	"currentGroup.DD5CDDE4" = "scene"
+	"last_search.DA94955A" = "console"
+	"OpenInspectorPreview.DA94955A" = "0"
+	"currentGroup.DA94955A" = "all"
 }
 providers = {
 	adb = {

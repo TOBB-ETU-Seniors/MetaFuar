@@ -152,10 +152,10 @@ public class HandMenuManager : MonoBehaviour
 
     IEnumerator PrepareInventoryPanel()
     {
-
+        inventoryPanel.GetComponent<Animator>().enabled = false;
+        inventoryPanel.transform.localScale = new Vector3(0, 0, 0);
         inventoryPanel.SetActive(true);
         MoveToFront(handMenuPanel);
-        inventoryPanel.transform.localScale = new Vector3(0, 0, 0);
 
         Coroutine myCoroutine = StartCoroutine(inventoryPanel.GetComponent<InventoryManager>()._GetProductsInInventory());
 
@@ -164,6 +164,7 @@ public class HandMenuManager : MonoBehaviour
 
         inventoryPanel.SetActive(false);
         inventoryPanel.transform.localScale = new Vector3(1, 1, 1);
+        inventoryPanel.GetComponent<Animator>().enabled = true;
     }
 
 }
