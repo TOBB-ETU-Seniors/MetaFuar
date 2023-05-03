@@ -21,8 +21,8 @@ public class InventoryManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!panelUpToDate)
-            StartCoroutine(_GetProductsInInventory());
+        panelUpToDate = false;
+        StartCoroutine(_GetProductsInInventory());
     }
 
     public void AddProduct(Product product)
