@@ -42,7 +42,7 @@ public class TeleportToFuarBowling : MonoBehaviour
     {
         PhotonNetwork.LeaveRoom();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
 
 
