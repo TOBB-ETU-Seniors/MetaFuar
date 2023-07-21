@@ -25,4 +25,5 @@ The MetaFuar project provides a unique and engaging experience by leveraging the
 ## Presentation Video
 
 To see a visual demonstration of the MetaFuar project, please watch our presentation video on YouTube: 
+
 [![MetaFuar Presentation Video](https://i.ytimg.com/vi/HPDZl7QPJkE/sddefault.jpg)](https://www.youtube.com/watch?v=HPDZl7QPJkE)
