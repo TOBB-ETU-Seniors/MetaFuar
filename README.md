@@ -8,7 +8,7 @@ The MetaFuar project is a virtual exhibition space developed as part of the "Met
 
 The target audience for the MetaFuar platform includes individuals who own VR devices. The platform caters to all users with VR headsets who wish to experience social interactions, engage in various activities, explore products, and make virtual purchases. However, as a precaution, the usage of the platform is not recommended for children under 12 years old and individuals at risk of photosensitive epilepsy due to potential hazards associated with VR technology.
 
-## User Scenarios
+## Features
 
 - Users can join a shared lobby with others to socialize and interact with fellow players.
 - The platform supports voice chat, allowing users to communicate with others easily and effectively.
