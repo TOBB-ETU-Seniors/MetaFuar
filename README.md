@@ -22,6 +22,28 @@ The target audience for the MetaFuar platform includes individuals who own VR de
 
 The MetaFuar project provides a unique and engaging experience by leveraging the potential of VR technology, enabling seamless social interactions and virtual trade show experiences for its users.
 
+## Screenshots
+
+### <p align="center">Fairground</p>
+
+| <img src="Assets/Menu/Graphics/ExplorePanelImages/Fuar.png" width="800"> | <img src="Assets/Menu/Graphics/ExplorePanelImages/Otopark Girişi 1.png" width="800"> |
+|:---:|:---:|
+
+| <img src="Assets/Menu/Graphics/ExplorePanelImages/Yarış Pisti.png" width="800"> | <img src="Assets/Menu/Graphics/ExplorePanelImages/Otopark Girişi 2.png" width="800"> |
+|:---:|:---:|
+
+
+| iPhone Exhibition |
+|:---------:|
+| <img src="Assets/Menu/Graphics/ExplorePanelImages/iPhone Sergisi.png"> |
+
+
+### <p align="center">Bowling Alley</p>
+
+| <img src="Assets/Resources/bowling_ss.PNG" width="920"> | ![metafuar-bowling](https://github.com/TOBB-ETU-Seniors/MetaFuar/assets/70165677/09ea9bcf-f766-48ed-8934-c86b581319bc) |
+|:---:|:---:|
+
+
 ## Presentation Video
 
 To see a visual demonstration of the MetaFuar project, please watch our presentation video on YouTube: 
